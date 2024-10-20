@@ -1,0 +1,22 @@
+.icon {
+  background: var(--color--luminous-vivid-amber);
+  color: var(--color--black);
+  /* height: 100%; */
+  border-radius: 10%;
+  display: flex;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 50px;
+    height: 50px;
+    /* Убирает все стили по умолчанию */
+    display: inline-block; /* Делает кнопку строчным блочным элементом */
+    cursor: pointer;
+    background: var(--color--luminous-vivid-amber);
+    border-radius: 10px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+    text-align: center; /* Выравнивание текста по центру */
+    border: none;
+  }
+}

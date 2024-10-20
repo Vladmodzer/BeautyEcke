@@ -1,0 +1,6 @@
+.container:hover {
+  opacity: 0.5;
+}
+.active {
+  color: var(--color--luminous-vivid-amber);
+}

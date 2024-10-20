@@ -1,6 +1,23 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color--black: #000000;
+  --color--cyan-bluish-gray: #abb8c3;
+  --color--gray: rgba(167, 167, 167, 0.2);
+  --color--white: #ffffff;
+  --color--pale-pink: #f78da7;
+  --color--vivid-red: #3f1212;
+  --color--luminous-vivid-orange: #ff6900;
+  --color--luminous-vivid-amber: #f1af09;
+  --color--luminous-vivid-amber-light: #f2d17d;
+  --color--light-green-cyan: #7bdcb5;
+  --color--vivid-green-cyan: #00d084;
+  --color--pale-cyan-blue: #8ed1fc;
+  --color--vivid-cyan-blue: #0693e3;
+  --color--vivid-purple: #9b51e0;
+  --color--dark-gray: #1a1a1a; /* Темный фон */
+  --color--light-gray: #ccc; /* Светло-серый цвет */
+  --color--medium-gray: #333; /* Новый цвет для #333 */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,6 +31,12 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: relative;
+  font-size: 16px;
+  z-index: -1;
+  scroll-behavior: smooth;
+  
 }
 
 body {
@@ -30,9 +53,520 @@ body {
   margin: 0;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Arial, sans-serif; /* Шрифт по умолчанию */
+}
+
+/* Дополнительные стили для поддержки браузеров */
+img {
+  max-width: 100%; /* Ограничение ширины изображений */
+  height: auto; /* Автоматическая высота */
+}
+
+ul {
+  list-style: none; /* Убираем маркеры у списков */
+}
+
+/* Основной контейнер для всего приложения */
+.container {
+  max-width: 1440px; /* Максимальная ширина */
+  margin: 0 auto; /* Центрирование */
+  padding: 0 clamp(14px, 4vw, 50px);
+  background-color: #f8f8f8; /* Фоновый цвет */
+  font-family: Arial, sans-serif; /* Шрифт */
+  line-height: 1.6; /* Интерлиньяж */
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+.primaryOuterContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.overlay {
+  background-color: var(
+    --color--black
+  ); /* Синий цвет фона с прозрачностью 30% */
+  opacity: 0.5;
+}
+
+/* Основной контейнер для всего приложения */
+
+/* Общие стили для ссылок */
 a {
-  color: inherit;
-  text-decoration: none;
+  color: var(--color--white); /* Цвет ссылок */
+  text-decoration: none; /* Убираем подчеркивание */
+}
+
+a:hover {
+  text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* home */
+.home_main {
+  height: 100%;
+}
+.main_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.bg {
+  background-size: cover; /* масштабируем картинку */
+  background-position: center; /* центрируем */
+  background-repeat: no-repeat; /* отключаем повторение */
+  height: 100%; /* например, высота экрана */
+  width: 100%; /* ширина контейнера */
+  position: relative;
+}
+
+.mainOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.99));
+  /* Полупрозрачный фон */
+  z-index: 1; /* Убедитесь, что z-index больше, чем у фона */
+}
+.content {
+  z-index: 100;
+}
+.texts {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.texts h1 {
+  font-size: clamp(20px, 3vw + 12px, 60px);
+
+  /* Скрывает лишний текст, если он не помещается */
+  /* Добавляет многоточие (...) в конце текста, если он слишком длинный */
+}
+.permanent {
+  color: var(--color--luminous-vivid-amber);
+}
+.city {
+  display: block; /* Переносит текст на новую строку */
+}
+.studio {
+  margin-left: 10px; /* Установите желаемый отступ */
+}
+.master {
+  font-size: clamp(14px, 1vw + 6px, 20px);
+}
+.master span {
+  display: block;
+}
+.check_icons li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(13px, 3vw + 12px, 34px);
+}
+.price {
+  font-size: clamp(12px, 3vw, 32px);
+}
+.buttonBox {
+  display: flex;
+  gap: 15px;
+}
+.content,
+.portfolio,
+.contact,
+.price_section {
+  padding: 5% 0;
+}
+.youwill {
+  font-size: clamp(12px, 3vw, 20px);
+}
+
+.advantages {
+  display: flex;
+  padding: 60px 0;
+  justify-content: space-between;
+}
+
+.advantagesCard {
+  padding: 25px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the icon and text */
+  width: 25%;
+  gap: 20px;
+  text-align: center; /* Centers the text */
+}
+
+.advantagesCard h3 {
+  width: 100%; /* Ensures the heading takes full width */
+  font-size: clamp(20px, 2vw, 30px);
+  white-space: nowrap;
+}
+
+.advantagesCard p {
+  text-align: center; /* Centers the paragraph text */
+  width: 100%; /* Ensures the paragraph takes full width */
+  font-size: clamp(16px, 1vw, 32px);
+}
+.price_section {
+  background: var(--color--white);
+}
+.price_section_text {
+  position: relative;
+  display: inline-block; /* Ensures the overlay works properly */
+  margin-bottom: 5%;
+}
+.price_section_price {
+  font-size: clamp(73px, 4vw, 200px);
+  color: var(--color--luminous-vivid-amber-light);
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0; /* Removes default margin */
+  opacity: 0.4;
+}
+.makeup_wrap {
+  position: absolute;
+  top: 25%; /* Adjust this value to position the overlayed text */
+  left: 0;
+  right: 0;
+  text-align: center; /* Center the overlayed text */
+  z-index: 10;
+}
+.price_section_makeup {
+  font-size: clamp(20px, 3vw, 50px) !important;
+  color: black; /* Black color for the overlay text */
+  z-index: 2; /* Ensures this text is on top */
+  margin: 0; /* Removes default margin */
+  text-transform: uppercase;
+}
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between cards, no margin on container edges */
+  justify-content: space-between;
+  /* Optional padding inside the container */
+}
+
+.card {
+  flex: 1 1 calc(33.333% - 20px); /* 3 cards per row, no margin needed */
+  background-color: var(--color--white);
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  color: var(--color--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-3px); /* Hover effect */
+}
+.cardTitle {
+  background: var(--color--black);
+  color: var(--color--white);
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 10px 0 0;
+}
+.cardTitle span {
+  text-transform: uppercase;
+}
+.cardPhoto {
+  padding: 20px;
+}
+
+.cardButton {
+  padding: 20px;
+}
+/* portfolio */
+.portfolio {
+  position: relative;
+  color: white;
+}
+
+.portfolio-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.portfolio-title-background {
+  font-size: 96px;
+  color: var(
+    --color--luminous-vivid-amber-light
+  ); /* Фон для текста PORTFOLIO */
+  text-align: center;
+  font-size: clamp(50px, 5vw, 200px);
+  opacity: 0.4;
+}
+.portfolio-title-wrap {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+}
+
+.portfolio-title-foreground {
+  font-size: 36px;
+  color: white; /* Передний план для текста Work Examples */
+  font-size: clamp(20px, 3vw, 50px);
+  z-index: 2;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* По умолчанию 5 колонок */
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Стилизация элементов сетки */
+.portfolio-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Это нужно для использования fill */
+  width: 100%; /* или фиксированная ширина */
+  height: 300px; /* или любая желаемая высота */
+  overflow: hidden; /* Это поможет скрыть части изображения, выходящие за границы */
+}
+
+.portfolio-item img {
+  width: 100%; /* Ширина изображения по контейнеру */
+  height: 100%; /* Высота изображения по контейнеру */
+  max-width: none; /* Убираем ограничение на максимальную ширину */
+  max-height: none; /* Убираем ограничение на максимальную высоту */
+  object-fit: cover; /* Обрезка изображения под размер контейнера */
+  border-radius: 10px; /* Небольшие закругления углов для эстетики */
+}
+
+/* Добавляем медиазапросы для разных размеров экрана */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr); /* 5 колонок для экранов до 768px */
+  }
+  /* .portfolio-item img {
+    left: 6.9% !important;
+  } */
+}
+
+@media (max-width: 600px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки для экранов до 600px */
+  }
+}
+
+@media (max-width: 425px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr; /* 1 колонка на экранах 425px и меньше */
+  }
+}
+
+.portfolio-footer {
+  text-align: center;
+  margin-top: 5%;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* portfolio */
+
+/* Контейнер для секции контактов */
+.contact {
+  background-color: #fff; /* Белый фон */
+  padding: 50px 0; /* Внутренний отступ сверху и снизу */
+  text-align: center;
+}
+.map-info-wrap {
+  display: flex;
+}
+
+.contact h2 {
+  font-size: 2.5em; /* Размер заголовка */
+  color: #f4d07f; /* Светло-золотой цвет, похожий на заголовок на фото */
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 1.2em; /* Размер текста */
+  color: var(--color--black); /* Темный цвет текста */
+  margin-bottom: 15px;
+}
+
+.contact strong {
+  color: #f4a261; /* Золотисто-оранжевый для выделенных элементов */
+}
+
+.contact .icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Расстояние между иконками */
+  margin-bottom: 20px;
+}
+
+.contact .icons img {
+  width: 40px; /* Размер иконок */
+  height: 40px;
+  cursor: pointer;
+}
+
+.contact .appointment-btn {
+  background-color: #f4d07f; /* Золотой цвет */
+  color: #fff; /* Белый текст */
+  padding: 15px 30px; /* Внутренний отступ */
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px; /* Закругленные углы */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Плавное изменение фона */
+}
+
+.contact .appointment-btn:hover {
+  background-color: #f4a261; /* Темный оттенок золота при наведении */
+}
+
+/* contact */
+/* Секция контактов */
+.contact {
+  background-color: var(--color--white);
+}
+
+.icon-contact {
+  color: var(--color--black);
+  width: 24px;
+  height: 24px;
+}
+.contact-icon-wrap {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+.contact-info {
+  flex: 1; /* Левая колонка с текстом */
+  padding-right: 30px; /* Отступ справа */
+  text-align: left;
+  font-size: clamp(10px, 2vw, 20px);
+}
+
+.contact-map {
+  flex: 1; /* Правая колонка с картой */
+}
+
+.contact h2 {
+  font-size: 2.5em;
+  color: #f4d07f; /* Золотистый цвет */
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.contact strong {
+  color: #f4a261; /* Оранжево-золотой для выделенного текста */
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.appointment-btn {
+  background-color: #f4d07f;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.appointment-btn:hover {
+  background-color: #f4a261;
+}
+
+.contact-map iframe {
+  width: 100%; /* Карта займет всю ширину колонки */
+  height: 100%; /* Высота карты */
+  border-radius: 10px; /* Закругленные углы для карты */
+  border: none; /* Без рамок */
+}
+.contact-header {
+  position: relative;
+  text-align: center;
+}
+.contact-title-background {
+  color: var(--color--luminous-vivid-amber-light);
+  text-align: center;
+  font-size: clamp(50px, 5vw, 200px) !important;
+  opacity: 0.4;
+  text-transform: uppercase;
+}
+.contact-title-wrap {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+}
+.contact-title-foreground {
+  color: var(--color--black) !important;
+  font-size: clamp(20px, 3vw, 50px) !important;
+  text-transform: uppercase;
+}
+@media (max-width: 480px) {
+  .card {
+    flex: 1 1 100%; /* 1 card per row */
+  }
+}
+@media (max-width: 768px) {
+  .map-info-wrap {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-info {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+  }
+  .advantages {
+    flex-direction: column;
+    align-items: center;
+  }
+  .advantagesCard {
+    width: 100%;
+  }
+}
+@media (max-width: 1200px) {
+  .buttonBox {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

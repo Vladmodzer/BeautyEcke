@@ -1,0 +1,16 @@
+/* verifiedIcon.module.css */
+.container {
+  display: inline-flex;
+  align-items: center;
+  /* justify-content: center; */
+  /* Adjust the size of the container */
+  height: 50px; /* Make it a perfect circle */
+  border-radius: 50%; /* Circular background */
+  /* Background color, e.g., green */
+}
+
+.icon {
+  width: 24px; /* Size of the icon */
+  height: 24px; /* Size of the icon */
+  color: var(--color--luminous-vivid-amber); /* Icon color */
+}

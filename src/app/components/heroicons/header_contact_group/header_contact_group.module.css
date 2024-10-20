@@ -1,0 +1,40 @@
+/* header_contact_group.module.css */
+.container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid var(--color--luminous-vivid-amber);
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* Убираем подчёркивание у ссылок */
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color--white);
+}
+
+.link:hover {
+  background-color: #f0f0f0;
+  .icon {
+    color: var(--color--black);
+  }
+}
+@media(max-width:320px){
+  .icon {
+    width: 18px;
+    height: 18px;
+
+  }
+}

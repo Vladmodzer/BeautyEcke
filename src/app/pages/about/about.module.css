@@ -1,0 +1,56 @@
+.borderBox {
+  border-style: solid;
+  border-color: var(--color--luminous-vivid-amber);
+  border-width: 5px;
+  display: flex;
+  position: relative;
+  padding: 30px;
+}
+.about {
+  padding: 5% 0;
+}
+.photo {
+  position: absolute;
+  width: 350px;
+  top: -57px;
+
+}
+.photoBox,
+.textsBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  align-items: center;
+}
+.textBox {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+}
+.textBox span:nth-of-type(2){
+    color: var(--color--luminous-vivid-amber);
+}
+.checkBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.checksBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+@media(max-width:1024px){
+    .photo{
+        top: -64px;
+    }
+}
+@media(max-width:768px) {
+    .photo {
+        display: none;
+    }
+    .borderBox{
+        flex-direction: column;
+    }
+}

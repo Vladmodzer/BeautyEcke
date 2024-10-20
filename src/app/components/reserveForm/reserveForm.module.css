@@ -1,0 +1,113 @@
+/* Общие стили для затемненного фона */
+.reserveFormOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* затемненный фон */
+  display: flex; /*flex */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Поверх всех остальных элементов */
+}
+
+/* Стили для крестика в верхнем углу */
+.closeIcon {
+  position: absolute; /* Позиционируем крестик относительно окна */
+  top: 20%; /* Отступ сверху */
+  right: 20%; /* Отступ справа */
+  font-size: 30px; /* Размер шрифта для крестика */
+  color: var(--color--white); /* Цвет крестика */
+  cursor: pointer; /* Курсор в виде указателя */
+  font-weight: 100;
+  transition: transform 0.3s; /* Плавная анимация для вращения */
+}
+
+/* Анимация поворота при наведении на крестик */
+.closeIcon:hover {
+  transform: rotate(180deg); /* Поворот при наведении */
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form label {
+  width: 100%;
+}
+/* Стили для контейнера формы */
+.reserveFormContainer {
+  background-color: var(--color--dark-gray); /* Темный фон формы */
+  padding: 40px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Тень для глубины */
+}
+
+/* Заголовки */
+.reserveFormContainer h2 {
+  font-size: clamp(1rem, 2vw + 1rem, 2.5rem);
+  color: var(--color--luminous-vivid-amber);
+  margin-bottom: 10px;
+}
+
+.reserveFormContainer h3 {
+  font-size: clamp(0.875rem, 1.5vw + 0.875rem, 2rem);
+  color: var(--color--white); /* Белый цвет для подзаголовка */
+  margin-bottom: 20px;
+}
+
+/* Стили для полей ввода */
+.reserveFormContainer input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--color--light-gray);
+  border-radius: 5px;
+  background-color: var(--color--medium-gray);
+  color: var(--color--white);
+  font-size: 16px;
+}
+
+/* Кнопка отправки */
+.reserveFormContainer button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(
+    --color--luminous-vivid-amber
+  ); /* Золотой цвет кнопки */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: var(--color--black);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.reserveFormContainer button:hover {
+  background-color: var(
+    --color--luminous-vivid-amber
+  ); /* Чуть более тёмный золотой при наведении */
+}
+
+/* Текст для согласия на обработку данных */
+.consentText {
+  font-size: 12px;
+  color: var(--color--light-gray);
+  margin-top: 15px;
+  text-align: left;
+}
+
+/* Стили для чекбокса */
+.consentText input[type="checkbox"] {
+  margin-right: 5px;
+}
+@media (max-width: 425px) {
+    .reserveFormContainer{
+    width: 80%;
+  }
+ 
+}
