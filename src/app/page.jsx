@@ -154,6 +154,7 @@ export default function Home() {
                 </div>
                 <p className="cardText">
                   Duration of the procedure is 1.5-2 hours
+             
                 </p>
                 <p>100$</p>
                 <div className="cardButton">

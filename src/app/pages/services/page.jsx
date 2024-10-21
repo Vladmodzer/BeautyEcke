@@ -23,7 +23,7 @@ function pageServices() {
       {isReserveForm && <ReserveForm onClick={handleReserveForm} />}
       <Header onClick={handleReserveForm} container={"container"} />
       <main>
-      <section className="price_section">
+        <section className="price_section">
           <div className="container">
             <div className="price_section_text">
               <h2 className="price_section_price">Prices</h2>
@@ -40,10 +40,13 @@ function pageServices() {
                   <span>Permanent eyebrow makeup</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image 
-                   width={500} 
-                   height={300} 
-                  src={imgBg} alt="img" />
+                  <Image
+                    width={500}
+                    height={300}
+                    src={imgBg}
+                    alt="img"
+                    priority
+                  />
                 </div>
                 <p className="cardText">
                   Duration of the procedure is 1.5-2 hours
@@ -58,15 +61,20 @@ function pageServices() {
                   <span>Permanent eyelid makeup</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image  width={500} 
-                   height={300}  src={imgBg} alt="img" />
+                  <Image
+                    width={500}
+                    height={300}
+                    src={imgBg}
+                    alt="img"
+                    priority
+                  />
                 </div>
                 <p className="cardText">
                   Duration of the procedure is 1.5-2 hours
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  onClick={handleReserveForm}/>
+                  <MainButton onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
@@ -74,15 +82,20 @@ function pageServices() {
                   <span>Permanent lip makeup</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image   width={500} 
-                   height={300}src={imgBg} alt="img" />
+                  <Image
+                    width={500}
+                    height={300}
+                    src={imgBg}
+                    alt="img"
+                    priority
+                  />
                 </div>
                 <p className="cardText">
                   Duration of the procedure is 1.5-2 hours
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  onClick={handleReserveForm} />
+                  <MainButton onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
@@ -90,15 +103,20 @@ function pageServices() {
                   <span>Correction</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image  width={500} 
-                   height={300} src={imgBg} alt="img" />
+                  <Image
+                    width={500}
+                    height={300}
+                    src={imgBg}
+                    alt="img"
+                    priority
+                  />
                 </div>
                 <p className="cardText">
                   Duration of the procedure is 1.5-2 hours
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  onClick={handleReserveForm}/>
+                  <MainButton onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
@@ -106,15 +124,20 @@ function pageServices() {
                   <span>Foundation effect</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image   width={500} 
-                   height={300} src={imgBg} alt="img" />
+                  <Image
+                    width={500}
+                    height={300}
+                    src={imgBg}
+                    alt="img"
+                    priority
+                  />
                 </div>
                 <p className="cardText">
                   Duration of the procedure is 1.5-2 hours
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  onClick={handleReserveForm}/>
+                  <MainButton onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
@@ -122,8 +145,13 @@ function pageServices() {
                   <span>Permanent makeup</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image   width={500} 
-                   height={300} src={imgBg} alt="img" />
+                  <Image
+                    width={500}
+                    height={300}
+                    src={imgBg}
+                    alt="img"
+                    priority
+                  />
                 </div>
                 <p className="cardText">
                   Duration of the procedure is 1.5-2 hours

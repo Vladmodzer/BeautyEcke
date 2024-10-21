@@ -1,8 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = async () => {
+ 
+
+  return {
     images: {
-        domains: ['permanent-63.ru'], // добавьте сюда ваш домен
-      },
+      domains: ['permanent-63.ru'],
+    },
+
+  };
 };
 
-export default nextConfig;
+export default nextConfig();

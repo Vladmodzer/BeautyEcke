@@ -6,6 +6,7 @@ import HeaderContactGroup from "../heroicons/header_contact_group/Header_contact
 import MainButton from "../mainButton/MainButton";
 import NavLink from "./navLink/NavLink";
 import { usePathname } from "next/navigation";
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -41,7 +42,11 @@ function Header({ onClick, container }) {
               })}
             </ul>
           </nav>
+
           <div className={styles.contact_item}>
+            <div className={styles.languageBox}>
+              <LanguageSelector />
+            </div>
             <MainButton width={"clamp(80px, 25vw, 100px)"} onClick={onClick} />
             <a href="tel:+4917666607523" className={styles.phone}>
               +49 176 66607523
