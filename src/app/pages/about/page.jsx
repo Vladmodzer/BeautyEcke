@@ -1,5 +1,5 @@
 "use client";
-import { useMenu } from "@/app/ClientProvider";
+import { UseMenu } from "@/app/ClientProvider";
 import Footer from "@/app/components/footer/Footer";
 import Header from "@/app/components/header/Header";
 import styles from "./about.module.css";
@@ -12,7 +12,7 @@ import VerifiedIcon from "@/app/components/heroicons/VerifiedIcon/VerifiedIcon";
 import Image from "next/image";
 
 function pageAbout() {
-  const { overlayOpen, t, language } = useMenu();
+  const { overlayOpen, t, language } = UseMenu();
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);

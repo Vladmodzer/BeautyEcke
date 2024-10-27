@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react"; // Импортируем useState для управления анимацией
-import { useMenu } from "@/app/ClientProvider";
+import { UseMenu } from "@/app/ClientProvider";
 import styles from "./mobileMenu.module.css";
 import NavLink from "../header/navLink/NavLink";
 
@@ -12,8 +12,8 @@ const navItems = [
 ];
 
 function MobileMenu() {
-  const { handleMenu } = useMenu();
-  const { menuOpen } = useMenu();
+  const { handleMenu } = UseMenu();
+  const { menuOpen } = UseMenu();
   const [isRotating, setIsRotating] = useState(false); // Управляем вращением кнопки
 
   const handleClick = () => {

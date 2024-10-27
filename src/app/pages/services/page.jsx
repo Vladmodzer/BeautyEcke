@@ -1,6 +1,6 @@
 "use client";
 
-import { useMenu } from "@/app/ClientProvider";
+import { UseMenu } from "@/app/ClientProvider";
 import Footer from "@/app/components/footer/Footer";
 import Header from "@/app/components/header/Header";
 
@@ -11,7 +11,7 @@ import imgBg from "./../../../../public/img/bg.jpg";
 import MainButton from "@/app/components/mainButton/MainButton";
 import Image from "next/image";
 function pageServices() {
-  const { overlayOpen, t, language } = useMenu();
+  const { overlayOpen, t, language } = UseMenu();
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);

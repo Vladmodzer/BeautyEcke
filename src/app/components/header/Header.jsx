@@ -7,11 +7,11 @@ import MainButton from "../mainButton/MainButton";
 import NavLink from "./navLink/NavLink";
 import { usePathname } from "next/navigation";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
-import { useMenu } from "@/app/ClientProvider";
+import { UseMenu } from "@/app/ClientProvider";
 
 function Header({ onClick, container }) {
   const pathname = usePathname();
-  const { t, language } = useMenu();
+  const { t, language } = UseMenu();
 
   const navItems = [
     { name: t("header.home",language), href: "/" },

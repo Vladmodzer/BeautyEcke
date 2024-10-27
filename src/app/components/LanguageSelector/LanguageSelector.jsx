@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useMenu } from "../../ClientProvider"; // Импортируйте useMenu
+import { UseMenu } from "../../ClientProvider"; // Импортируйте UseMenu
 import styles from "./languageSelector.module.css";
 
 const LanguageSelector = () => {
-  const { language, changeLanguage } = useMenu(); // Деструктуризация контекста
+  const { language, changeLanguage } = UseMenu(); // Деструктуризация контекста
   const [isOpen, setIsOpen] = useState(false);
 
   const handleChange = (newLang) => {

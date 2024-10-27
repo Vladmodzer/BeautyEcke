@@ -8,7 +8,7 @@ import ru from "../local/ru/translation.json";
 // Создаём контекст для меню
 const MenuContext = createContext();
 
-export function useMenu() {
+export function UseMenu() {
   return useContext(MenuContext);
 }
 

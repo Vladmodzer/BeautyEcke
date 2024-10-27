@@ -5,12 +5,12 @@ import NavLink from "../header/navLink/NavLink";
 import { usePathname } from "next/navigation";
 import MainButton from "../mainButton/MainButton";
 import HeaderContactGroup from "../heroicons/header_contact_group/Header_contact_group";
-import { useMenu } from "@/app/ClientProvider";
+import { UseMenu } from "@/app/ClientProvider";
 
 function Footer({ onClick, container }) {
   const pathname = usePathname();
 
-  const { t, language } = useMenu();
+  const { t, language } = UseMenu();
   const navItems = [
     { name: t("header.home",language), href: "/" },
     { name: t("header.about",language), href: "/pages/about" },

@@ -2,7 +2,7 @@
 
 import Header from "@/app/components/header/Header";
 import Footer from "@/app/components/footer/Footer";
-import { useMenu } from "./ClientProvider";
+import { UseMenu } from "./ClientProvider";
 import MobileMenu from "./components/mobileMenu/MobileMenu";
 import ReserveForm from "./components/reserveForm/ReserveForm";
 import imgBg from "./../../public/img/bg.jpg";
@@ -18,7 +18,7 @@ import GetConsultationForm from "@/app/components/getConsultationForm/GetConsult
 // import ScrollToTop from "./components/heroicons/ChevronUpIcon/ChevronUpIcon";
 
 export default function Home() {
-  const { overlayOpen, t, language } = useMenu();
+  const { overlayOpen, t, language } = UseMenu();
 
   const [isReserveForm, setReserveForm] = useState(false);
 
@@ -54,51 +54,52 @@ export default function Home() {
             <section className="content">
               <div className="texts">
                 <h1>
-            
-                  <span className="permanent">{t("main.welcome.title",language)}</span>
-                  <span className="studio">{t("main.welcome.subtitle",language)}</span>
-
+                  <span className="permanent">
+                    {t("main.welcome.title", language)}
+                  </span>
+                  <span className="studio">
+                    {t("main.welcome.subtitle", language)}
+                  </span>
                 </h1>
                 <p className="master">
-                  <span>{t("main.welcome.master_info",language)}</span>
+                  <span>{t("main.welcome.master_info", language)}</span>
                   <span>
-                    {" "}
-                    {t("main.welcome.master_info_1",language)}
+                    &quot;{t("main.welcome.master_info_1", language)}&quot;
                   </span>
                 </p>
 
                 <ul className="check_icons">
                   <li>
                     <VerifiedIcon />
-                    {t("main.welcome.tattoos.eyebrow",language)}
+                    {t("main.welcome.tattoos.eyebrow", language)}
                   </li>
                   <li>
                     <VerifiedIcon />
-                    {t("main.welcome.tattoos.lip",language)}
+                    {t("main.welcome.tattoos.lip", language)}
                   </li>
                   <li>
                     <VerifiedIcon />
-                    {t("main.welcome.tattoos.eyelid",language)}
+                    {t("main.welcome.tattoos.eyelid", language)}
                   </li>
                 </ul>
 
                 <p className="price">
-                {t("main.welcome.price_info",language)}
+                  {t("main.welcome.price_info", language)}
                 </p>
 
                 <p className="youwill">
-                {t("main.welcome.you_will",language)}
+                  {t("main.welcome.you_will", language)}
                 </p>
                 <div className="buttonBox">
                   <MainButton
                     onClick={handleReserveForm}
-                    label={t("main.buttons.book_appointment",language)}
+                    label={t("main.buttons.book_appointment", language)}
                   />
                   <MainButton
                     withIcon={true}
                     onClick={handleConsultationForm}
                     bg={"var(--color--white)"}
-                    label={t("main.buttons.get_consultation",language)}
+                    label={t("main.buttons.get_consultation", language)}
                   />
                 </div>
               </div>
@@ -110,24 +111,18 @@ export default function Home() {
           <div className="advantages">
             <div className="advantagesCard">
               <UserIconComponent />
-              <h3>{t("main.advantages.fast_and_painless",language)}</h3>
-              <p>
-              {t("main.advantages.procedure_duration",language)}
-              </p>
+              <h3>{t("main.advantages.fast_and_painless", language)}</h3>
+              <p>{t("main.advantages.procedure_duration", language)}</p>
             </div>
             <div className="advantagesCard">
               <HeartIconComponent />
-              <h3>{t("main.advantages.fast_and_painless",language)}</h3>
-              <p>
-              {t("main.advantages.guarantee",language)}
-              </p>
+              <h3>{t("main.advantages.fast_and_painless", language)}</h3>
+              <p>{t("main.advantages.guarantee", language)}</p>
             </div>
             <div className="advantagesCard">
               <HeartIconComponent />
-              <h3>{t("main.advantages.fast_and_painless",language)}</h3>
-              <p>
-              {t("main.advantages.guarantee",language)}
-              </p>
+              <h3>{t("main.advantages.fast_and_painless", language)}</h3>
+              <p>{t("main.advantages.guarantee", language)}</p>
             </div>
           </div>
         </div>
@@ -137,7 +132,7 @@ export default function Home() {
               <h2 className="price_section_price">Prices</h2>
               <div className="makeup_wrap">
                 <h3 className="price_section_makeup">
-                {t("main.price_section.title",language)}
+                  {t("main.price_section.title", language)}
                 </h3>
               </div>
             </div>
@@ -145,99 +140,130 @@ export default function Home() {
             <div className="cardContainer">
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
                   <MainButton
-                   label={t("header.button",language)}
-                   onClick={handleReserveForm} />
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                  />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
                   <MainButton
-                   label={t("header.button",language)}
-                   onClick={handleReserveForm} />
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                  />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
+                  <MainButton
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                  />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
+                  <MainButton
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                  />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
+                  <MainButton
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                  />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
+                  <MainButton
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                  />
                 </div>
               </div>
-              
             </div>
           </div>
         </section>
@@ -246,7 +272,9 @@ export default function Home() {
             <div className="portfolio-header">
               <h2 className="portfolio-title-background">PORTFOLIO</h2>
               <div className="portfolio-title-wrap">
-                <h2 className="portfolio-title-foreground">{t("main.portfolio.title",language)}</h2>
+                <h2 className="portfolio-title-foreground">
+                  {t("main.portfolio.title", language)}
+                </h2>
               </div>
             </div>
             <div className="portfolio-grid">
@@ -334,7 +362,7 @@ export default function Home() {
               </div>
             </div>
             <p className="portfolio-footer">
-              {t("main.portfolio.footer",language)}
+              {t("main.portfolio.footer", language)}
             </p>
           </div>
         </section>
@@ -343,7 +371,9 @@ export default function Home() {
             <div className="contact-header">
               <h2 className="contact-title-background">contact</h2>
               <div className="contact-title-wrap">
-                <h2 className="contact-title-foreground">{t("main.contact.title",language)}</h2>
+                <h2 className="contact-title-foreground">
+                  {t("main.contact.title", language)}
+                </h2>
               </div>
             </div>
             <p>
@@ -368,7 +398,7 @@ export default function Home() {
                 />
                 <MainButton
                   withIcon={true}
-                  label={t("main.buttons.get_consultation",language)}
+                  label={t("main.buttons.get_consultation", language)}
                   onClick={handleConsultationForm}
                 />
               </div>

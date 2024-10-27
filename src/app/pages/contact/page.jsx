@@ -1,6 +1,6 @@
 "use client";
 
-import { useMenu } from "@/app/ClientProvider";
+import { UseMenu } from "@/app/ClientProvider";
 import Footer from "@/app/components/footer/Footer";
 import Header from "@/app/components/header/Header";
 import HeaderContactGroup from "@/app/components/heroicons/header_contact_group/Header_contact_group";
@@ -10,7 +10,7 @@ import ReserveForm from "@/app/components/reserveForm/ReserveForm";
 import { useState } from "react";
 
 function pageContact() {
-  const { overlayOpen, t, language } = useMenu();
+  const { overlayOpen, t, language } = UseMenu();
 
   const [isReserveForm, setReserveForm] = useState(false);
 

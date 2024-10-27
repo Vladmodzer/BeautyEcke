@@ -2,10 +2,10 @@
 
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import styles from "./burgerMenuButton.module.css";
-import { useMenu } from "../../../ClientProvider"; // Подключаем контекст
+import { UseMenu } from "../../../ClientProvider"; // Подключаем контекст
 
 function BurgerMenuButton() {
-  const { handleMenu } = useMenu(); // Получаем функцию переключения оверлея
+  const { handleMenu } = UseMenu(); // Получаем функцию переключения оверлея
 
   return (
     <button onClick={handleMenu} className={styles.container}>
