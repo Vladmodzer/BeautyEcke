@@ -117,7 +117,7 @@ function pageAbout() {
                 <p>
                   <strong>Permanent Makeup Studio Beauty Ecke</strong>
                 </p>
-                <p>(Lead artist "Ekaterina Birukova")</p>
+                <p>Lead artist Ekaterina Birukova</p>
                 <p>
                   <strong>Phone:</strong> +49 176 66607523
                 </p>
