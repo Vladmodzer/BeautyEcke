@@ -11,7 +11,7 @@ import MainButton from "@/app/components/mainButton/MainButton";
 import VerifiedIcon from "@/app/components/heroicons/VerifiedIcon/VerifiedIcon";
 import Image from "next/image";
 
-function pageAbout() {
+function PageAbout() {
   const { overlayOpen, t, language } = UseMenu();
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
@@ -157,4 +157,4 @@ function pageAbout() {
   );
 }
 
-export default pageAbout;
+export default PageAbout;

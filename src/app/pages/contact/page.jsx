@@ -9,9 +9,8 @@ import MobileMenu from "@/app/components/mobileMenu/MobileMenu";
 import ReserveForm from "@/app/components/reserveForm/ReserveForm";
 import { useState } from "react";
 
-function pageContact() {
+function PageContact() {
   const { overlayOpen, t, language } = UseMenu();
-
   const [isReserveForm, setReserveForm] = useState(false);
 
   const handleReserveForm = () => {
@@ -87,4 +86,4 @@ function pageContact() {
   );
 }
 
-export default pageContact;
+export default PageContact;

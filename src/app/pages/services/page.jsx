@@ -10,7 +10,7 @@ import { useState } from "react";
 import imgBg from "./../../../../public/img/bg.jpg";
 import MainButton from "@/app/components/mainButton/MainButton";
 import Image from "next/image";
-function pageServices() {
+function PageServices() {
   const { overlayOpen, t, language } = UseMenu();
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
@@ -139,4 +139,4 @@ function pageServices() {
   );
 }
 
-export default pageServices;
+export default PageServices;
