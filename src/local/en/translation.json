@@ -1,0 +1,105 @@
+{
+  "header": {
+    "title": "Permanent Makeup Studio",
+    "contact_us": "Contact Us",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "button": "Reserve"
+  },
+  "main": {
+    "welcome": {
+      "title": "Permanent Makeup",
+      "subtitle": "Studio in Essen",
+      "master_info": "Leading master Ekaterina Birukova,",
+      "master_info_1": "a permanent makeup expert with years of experience.",
+      "tattoos": {
+        "eyebrow": "Eyebrow Tattoo",
+        "lip": "Lip Tattoo",
+        "eyelid": "Eyelid Tattoo"
+      },
+      "price_info": "Permanent makeup for any area from 300 Euro",
+      "you_will": "You will forget about daily makeup after the permanent makeup procedure."
+    },
+    "buttons": {
+      "book_appointment": "Book an Appointment",
+      "get_consultation": "Get a Consultation"
+    },
+    "advantages": {
+      "fast_and_painless": "Fast and painless",
+      "procedure_duration": "The procedure lasts 2 hours. Permanent makeup is 100% safe and painless.",
+      "guarantee": "We guarantee the absence of any consequences after permanent makeup.",
+      "beauty_update": "A beautiful update to your look. Enhance the natural beauty of your face."
+    },
+    "price_section": {
+      "title": "Prices for Permanent Makeup",
+      "items": {
+        "eyebrow": {
+          "title": "Permanent Eyebrow Makeup",
+          "duration": "Duration of the procedure is 1.5-2 hours",
+          "price": "100$"
+        },
+        "eyelid": {
+          "title": "Permanent Eyelid Makeup",
+          "duration": "Duration of the procedure is 1.5-2 hours",
+          "price": "100$"
+        },
+        "lip": {
+          "title": "Permanent Lip Makeup",
+          "duration": "Duration of the procedure is 1.5-2 hours",
+          "price": "100$"
+        },
+        "correction": {
+          "title": "Correction",
+          "duration": "Duration of the procedure is 1.5-2 hours",
+          "price": "100$"
+        },
+        "foundation_effect": {
+          "title": "Foundation Effect",
+          "duration": "Duration of the procedure is 1.5-2 hours",
+          "price": "100$"
+        },
+        "permanent_makeup": {
+          "title": "Permanent Makeup",
+          "duration": "Duration of the procedure is 1.5-2 hours",
+          "price": "100$"
+        }
+      }
+    },
+    "portfolio": {
+      "title": "Work Examples",
+      "footer": "See more examples of work, as well as updates and promotions, on our social media."
+    },
+    "contact": {
+      "title": "Contact Us!",
+      "invitation": "We invite professionals to our permanent makeup training programs",
+      "info": {
+        "studio_name": "Permanent Makeup Studio Beauty Ecke",
+        "lead_artist": "(Lead artist \"Ekaterina Birukova\")",
+        "phone": "Phone: +49 176 66607523",
+        "location": "Location: Essen Dahlhauser Str. 104C",
+        "appointment_info": "Book your appointment via Viber/WhatsApp"
+      }
+    },
+    "about": {
+      "title": "About Us",
+      "master": {
+        "name": "Ekaterina Birukova",
+        "position": "Leading Master",
+        "achievements": [
+          "Performed more than 1000 procedures",
+          "Over 100 students worldwide",
+          "Conducted training in Italy at a salon opening",
+          "Ekaterina's tattoo techniques are popular across Europe"
+        ]
+      }
+    }
+  },
+  "footer": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
+  }
+}

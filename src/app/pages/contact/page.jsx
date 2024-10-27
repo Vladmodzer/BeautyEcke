@@ -10,10 +10,17 @@ import ReserveForm from "@/app/components/reserveForm/ReserveForm";
 import { useState } from "react";
 
 function pageContact() {
-  const { overlayOpen } = useMenu();
+  const { overlayOpen, t, language } = useMenu();
+
   const [isReserveForm, setReserveForm] = useState(false);
+
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);
+  };
+  const [setConsultationForm] = useState(false);
+
+  const handleConsultationForm = () => {
+    setConsultationForm((prev) => !prev);
   };
 
   return (
@@ -27,7 +34,9 @@ function pageContact() {
             <div className="contact-header">
               <h2 className="contact-title-background">contact</h2>
               <div className="contact-title-wrap">
-                <h2 className="contact-title-foreground">contact us!</h2>
+                <h2 className="contact-title-foreground">
+                  {t("main.contact.title", language)}
+                </h2>
               </div>
             </div>
             <p>
@@ -50,7 +59,11 @@ function pageContact() {
                   className={"contact-icon-wrap"}
                   iconStyle={"icon-contact"}
                 />
-                <MainButton label={"Get a Consultation"} withIcon={true} onClick={handleReserveForm} />
+                <MainButton
+                  withIcon={true}
+                  label={t("main.buttons.get_consultation", language)}
+                  onClick={handleConsultationForm}
+                />
               </div>
               <div className="contact-map">
                 {/* Карта */}

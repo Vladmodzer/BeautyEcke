@@ -7,15 +7,18 @@ import MainButton from "../mainButton/MainButton";
 import NavLink from "./navLink/NavLink";
 import { usePathname } from "next/navigation";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
+import { useMenu } from "@/app/ClientProvider";
 
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/pages/about" },
-  { name: "Services", href: "/pages/services" },
-  { name: "Contact", href: "/pages/contact" },
-];
 function Header({ onClick, container }) {
   const pathname = usePathname();
+  const { t, language } = useMenu();
+
+  const navItems = [
+    { name: t("header.home",language), href: "/" },
+    { name: t("header.about",language), href: "/pages/about" },
+    { name: t("header.services",language), href: "/pages/services" },
+    { name: t("header.contact",language), href: "/pages/contact" },
+  ];
 
   return (
     <header>
@@ -47,7 +50,9 @@ function Header({ onClick, container }) {
             <div className={styles.languageBox}>
               <LanguageSelector />
             </div>
-            <MainButton width={"clamp(80px, 25vw, 100px)"} onClick={onClick} />
+            <MainButton 
+            label={t("header.button",language)}
+            width={"clamp(80px, 25vw, 100px)"} onClick={onClick} />
             <a href="tel:+4917666607523" className={styles.phone}>
               +49 176 66607523
             </a>

@@ -11,7 +11,7 @@ import imgBg from "./../../../../public/img/bg.jpg";
 import MainButton from "@/app/components/mainButton/MainButton";
 import Image from "next/image";
 function pageServices() {
-  const { overlayOpen } = useMenu();
+  const { overlayOpen, t, language } = useMenu();
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);
@@ -23,13 +23,13 @@ function pageServices() {
       {isReserveForm && <ReserveForm onClick={handleReserveForm} />}
       <Header onClick={handleReserveForm} container={"container"} />
       <main>
-        <section className="price_section">
+      <section className="price_section">
           <div className="container">
             <div className="price_section_text">
               <h2 className="price_section_price">Prices</h2>
               <div className="makeup_wrap">
                 <h3 className="price_section_makeup">
-                  Prices for permanent makeup
+                {t("main.price_section.title",language)}
                 </h3>
               </div>
             </div>
@@ -37,130 +37,99 @@ function pageServices() {
             <div className="cardContainer">
               <div className="card">
                 <div className="cardTitle">
-                  <span>Permanent eyebrow makeup</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image
-                    width={500}
-                    height={300}
-                    src={imgBg}
-                    alt="img"
-                    priority
-                  />
+                  <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton
+                   label={t("header.button",language)}
+                   onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span>Permanent eyelid makeup</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image
-                    width={500}
-                    height={300}
-                    src={imgBg}
-                    alt="img"
-                    priority
-                  />
+                  <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton
+                   label={t("header.button",language)}
+                   onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span>Permanent lip makeup</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image
-                    width={500}
-                    height={300}
-                    src={imgBg}
-                    alt="img"
-                    priority
-                  />
+                  <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span>Correction</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image
-                    width={500}
-                    height={300}
-                    src={imgBg}
-                    alt="img"
-                    priority
-                  />
+                  <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span>Foundation effect</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image
-                    width={500}
-                    height={300}
-                    src={imgBg}
-                    alt="img"
-                    priority
-                  />
+                  <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span>Permanent makeup</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
-                  <Image
-                    width={500}
-                    height={300}
-                    src={imgBg}
-                    alt="img"
-                    priority
-                  />
+                  <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
                 </div>
               </div>
+              
             </div>
           </div>
         </section>

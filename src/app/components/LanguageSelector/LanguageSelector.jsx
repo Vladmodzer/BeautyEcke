@@ -1,15 +1,17 @@
-// components/LanguageSelector.js
-import { useState } from 'react';
-import styles from './languageSelector.module.css';
+import { useState, useEffect } from "react";
+import { useMenu } from "../../ClientProvider"; // Импортируйте useMenu
+import styles from "./languageSelector.module.css";
 
 const LanguageSelector = () => {
-  const [language, setLanguage] = useState('ru');
+  const { language, changeLanguage } = useMenu(); // Деструктуризация контекста
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleChange = (event) => {
-    setLanguage(event.target.value);
+  const handleChange = (newLang) => {
+    changeLanguage(newLang); // Вызываем функцию смены языка из контекста
     setIsOpen(false); // Закрываем меню после выбора
   };
+
+
 
   return (
     <div className={styles.container}>
@@ -18,7 +20,7 @@ const LanguageSelector = () => {
         className={styles.button}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {language === 'ru' ? 'ru' : language === 'en' ? 'en' : 'de'}
+        {language}
       </button>
 
       {isOpen && (
@@ -26,19 +28,19 @@ const LanguageSelector = () => {
           <div role="menu" aria-orientation="vertical">
             <button
               className={styles.menuItem}
-              onClick={() => handleChange({ target: { value: 'ru' } })}
+              onClick={() => handleChange("ru")}
             >
               ru
             </button>
             <button
               className={styles.menuItem}
-              onClick={() => handleChange({ target: { value: 'en' } })}
+              onClick={() => handleChange("en")}
             >
               en
             </button>
             <button
               className={styles.menuItem}
-              onClick={() => handleChange({ target: { value: 'de' } })}
+              onClick={() => handleChange("de")}
             >
               de
             </button>

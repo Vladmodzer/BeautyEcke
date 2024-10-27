@@ -18,7 +18,7 @@
   --color--dark-gray: #1a1a1a; /* Темный фон */
   --color--light-gray: #ccc; /* Светло-серый цвет */
   --color--medium-gray: #333; /* Новый цвет для #333 */
-  --color--light-gray:#4a4a4a;
+  --color--light-gray: #4a4a4a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,7 +37,6 @@ body {
   font-size: 16px;
   z-index: -1;
   scroll-behavior: smooth;
-  
 }
 
 body {
@@ -211,7 +210,6 @@ a:hover {
 .advantagesCard h3 {
   width: 100%; /* Ensures the heading takes full width */
   font-size: clamp(20px, 2vw, 30px);
-  white-space: nowrap;
 }
 
 .advantagesCard p {
@@ -286,9 +284,11 @@ a:hover {
   align-items: center;
   justify-content: center;
   border-radius: 10px 10px 0 0;
+  /* padding:2px 20px; */
 }
 .cardTitle span {
   text-transform: uppercase;
+  font-size: clamp(10px, 2vw - 10px, 21px);
 }
 .cardPhoto {
   padding: 20px;
@@ -542,7 +542,7 @@ a:hover {
 .cardText {
   padding: 20px;
   width: 100%;
-  font-size: clamp(14px,2vw,18px);
+  font-size: clamp(14px, 2vw, 18px);
 }
 @media (max-width: 480px) {
   .card {

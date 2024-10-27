@@ -14,10 +14,11 @@ import HeartIconComponent from "./components/heroicons/IconCircle/UserIcon/Heart
 import HeaderContactGroup from "./components/heroicons/header_contact_group/Header_contact_group";
 import { useState } from "react";
 import GetConsultationForm from "@/app/components/getConsultationForm/GetConsultationForm";
+
 // import ScrollToTop from "./components/heroicons/ChevronUpIcon/ChevronUpIcon";
 
 export default function Home() {
-  const { overlayOpen } = useMenu();
+  const { overlayOpen, t, language } = useMenu();
 
   const [isReserveForm, setReserveForm] = useState(false);
 
@@ -53,51 +54,51 @@ export default function Home() {
             <section className="content">
               <div className="texts">
                 <h1>
-                  <span className="permanent">Permanent Makeup</span>
-                  <span className="studio">Studio</span>
-                  <span className="city">in Essen</span>
+            
+                  <span className="permanent">{t("main.welcome.title",language)}</span>
+                  <span className="studio">{t("main.welcome.subtitle",language)}</span>
+
                 </h1>
                 <p className="master">
-                  <span>Leading master Ekaterina Birukova,</span>
+                  <span>{t("main.welcome.master_info",language)}</span>
                   <span>
                     {" "}
-                    a permanent makeup expert with years of experience
+                    {t("main.welcome.master_info_1",language)}
                   </span>
                 </p>
 
                 <ul className="check_icons">
                   <li>
                     <VerifiedIcon />
-                    Eyebrow Tattoo
+                    {t("main.welcome.tattoos.eyebrow",language)}
                   </li>
                   <li>
                     <VerifiedIcon />
-                    Lip Tattoo
+                    {t("main.welcome.tattoos.lip",language)}
                   </li>
                   <li>
                     <VerifiedIcon />
-                    Eyelid Tattoo
+                    {t("main.welcome.tattoos.eyelid",language)}
                   </li>
                 </ul>
 
                 <p className="price">
-                  Permanent makeup for any area from <strong>300 Euro</strong>
+                {t("main.welcome.price_info",language)}
                 </p>
 
                 <p className="youwill">
-                  You will forget about daily makeup after the permanent makeup
-                  procedure.
+                {t("main.welcome.you_will",language)}
                 </p>
                 <div className="buttonBox">
                   <MainButton
                     onClick={handleReserveForm}
-                    label={"Book an Appointment"}
+                    label={t("main.buttons.book_appointment",language)}
                   />
                   <MainButton
                     withIcon={true}
                     onClick={handleConsultationForm}
                     bg={"var(--color--white)"}
-                    label={"Get a Consultation"}
+                    label={t("main.buttons.get_consultation",language)}
                   />
                 </div>
               </div>
@@ -109,26 +110,23 @@ export default function Home() {
           <div className="advantages">
             <div className="advantagesCard">
               <UserIconComponent />
-              <h3>Fast and painless</h3>
+              <h3>{t("main.advantages.fast_and_painless",language)}</h3>
               <p>
-                The procedure lasts 2 hours. Permanent makeup is 100% safe and
-                painless.
+              {t("main.advantages.procedure_duration",language)}
               </p>
             </div>
             <div className="advantagesCard">
               <HeartIconComponent />
-              <h3>Fast and painless</h3>
+              <h3>{t("main.advantages.fast_and_painless",language)}</h3>
               <p>
-                We guarantee the absence of any consequences after permanent
-                makeup.
+              {t("main.advantages.guarantee",language)}
               </p>
             </div>
             <div className="advantagesCard">
               <HeartIconComponent />
-              <h3>Fast and painless</h3>
+              <h3>{t("main.advantages.fast_and_painless",language)}</h3>
               <p>
-                A beautiful update to your look. Enhance the natural beauty of
-                your face.
+              {t("main.advantages.guarantee",language)}
               </p>
             </div>
           </div>
@@ -139,7 +137,7 @@ export default function Home() {
               <h2 className="price_section_price">Prices</h2>
               <div className="makeup_wrap">
                 <h3 className="price_section_makeup">
-                  Prices for permanent makeup
+                {t("main.price_section.title",language)}
                 </h3>
               </div>
             </div>
@@ -147,95 +145,99 @@ export default function Home() {
             <div className="cardContainer">
               <div className="card">
                 <div className="cardTitle">
-                  <span>Permanent eyebrow makeup</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
-             
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton
+                   label={t("header.button",language)}
+                   onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span>Permanent eyelid makeup</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton
+                   label={t("header.button",language)}
+                   onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span>Permanent lip makeup</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span>Correction</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span>Foundation effect</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span>Permanent makeup</span>
+                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  Duration of the procedure is 1.5-2 hours
+                {t("main.price_section.items.eyebrow.duration",language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton onClick={handleReserveForm} />
+                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
                 </div>
               </div>
+              
             </div>
           </div>
         </section>
@@ -244,85 +246,104 @@ export default function Home() {
             <div className="portfolio-header">
               <h2 className="portfolio-title-background">PORTFOLIO</h2>
               <div className="portfolio-title-wrap">
-                <h2 className="portfolio-title-foreground">Work Examples</h2>
+                <h2 className="portfolio-title-foreground">{t("main.portfolio.title",language)}</h2>
               </div>
             </div>
             <div className="portfolio-grid">
               <div className="portfolio-item">
-                <Image src="/img/1.jpg" alt="Work Example 1" fill
-                 sizes="(max-width: 768px) 100vw, (min-width: 768px) 33vw"
-                 // Adjust based on your layout
-     
-                 />
+                <Image
+                  src="/img/1.jpg"
+                  alt="Work Example 1"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (min-width: 768px) 33vw"
+                  // Adjust based on your layout
+                />
               </div>
               <div className="portfolio-item">
-                <Image src="/img/2.jpg" alt="Work Example 2" fill
-                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
-                 //
-                 />
+                <Image
+                  src="/img/2.jpg"
+                  alt="Work Example 2"
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
+                  //
+                />
               </div>
               <div className="portfolio-item">
-                <Image src="/img/3.jpg" alt="Work Example 3" fill
-                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
-                 
-                 />
+                <Image
+                  src="/img/3.jpg"
+                  alt="Work Example 3"
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
+                />
               </div>
               <div className="portfolio-item">
-                <Image src="/img/4.jpg" alt="Work Example 4" fill
-                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
-                 
-                 />
+                <Image
+                  src="/img/4.jpg"
+                  alt="Work Example 4"
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
+                />
               </div>
               <div className="portfolio-item">
-                <Image src="/img/5.jpg" alt="Work Example 5" fill
-                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
-                 
-                 />
+                <Image
+                  src="/img/5.jpg"
+                  alt="Work Example 5"
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
+                />
               </div>
               <div className="portfolio-item">
-                <Image src="/img/6.jpg" alt="Work Example 6" fill
-                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
-                 
-                 />
+                <Image
+                  src="/img/6.jpg"
+                  alt="Work Example 6"
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
+                />
               </div>
               <div className="portfolio-item">
-                <Image src="/img/7.jpg" alt="Work Example 7" fill
-                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
-                 
-                 />
+                <Image
+                  src="/img/7.jpg"
+                  alt="Work Example 7"
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
+                />
               </div>
               <div className="portfolio-item">
-                <Image src="/img/8.jpg" alt="Work Example 8" fill
-                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
-                 
-                 />
+                <Image
+                  src="/img/8.jpg"
+                  alt="Work Example 8"
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
+                />
               </div>
               <div className="portfolio-item">
-                <Image src="/img/9.jpg" alt="Work Example 9" fill
-                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
-                 
-                 />
+                <Image
+                  src="/img/9.jpg"
+                  alt="Work Example 9"
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
+                />
               </div>
               <div className="portfolio-item">
-                <Image src="/img/10.jpg" alt="Work Example 10" fill
-                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
-                 
-                 />
+                <Image
+                  src="/img/10.jpg"
+                  alt="Work Example 10"
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 33vw" // Adjust based on your layout
+                />
               </div>
             </div>
             <p className="portfolio-footer">
-              See more examples of work, as well as updates and promotions, on
-              our social media.
+              {t("main.portfolio.footer",language)}
             </p>
           </div>
         </section>
-
         <section className="contact">
           <div className="container">
             <div className="contact-header">
               <h2 className="contact-title-background">contact</h2>
               <div className="contact-title-wrap">
-                <h2 className="contact-title-foreground">contact us!</h2>
+                <h2 className="contact-title-foreground">{t("main.contact.title",language)}</h2>
               </div>
             </div>
             <p>
@@ -347,7 +368,7 @@ export default function Home() {
                 />
                 <MainButton
                   withIcon={true}
-                  label={"Get a Consultation"}
+                  label={t("main.buttons.get_consultation",language)}
                   onClick={handleConsultationForm}
                 />
               </div>

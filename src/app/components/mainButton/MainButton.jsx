@@ -25,12 +25,12 @@ function MainButton({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        fontWeight: "600",
+        fontWeight: "800",
         padding: `8px 20px`,
         borderRadius: "50px",
         transition: `background 0.2s ease`,
         whiteSpace: "nowrap", // Запрещаем перенос текста
-        fontSize: fontsize || "clamp(10px, 1vw, 15px)"
+        fontSize: fontsize || "clamp(9px, 1vw, 10px)"
       }}
       type={type || "button"} // Указание типа кнопки
     >

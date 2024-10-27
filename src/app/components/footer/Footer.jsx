@@ -5,14 +5,18 @@ import NavLink from "../header/navLink/NavLink";
 import { usePathname } from "next/navigation";
 import MainButton from "../mainButton/MainButton";
 import HeaderContactGroup from "../heroicons/header_contact_group/Header_contact_group";
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/pages/about" },
-  { name: "Services", href: "/pages/services" },
-  { name: "Contact", href: "/pages/contact" },
-];
+import { useMenu } from "@/app/ClientProvider";
+
 function Footer({ onClick, container }) {
   const pathname = usePathname();
+
+  const { t, language } = useMenu();
+  const navItems = [
+    { name: t("header.home",language), href: "/" },
+    { name: t("header.about",language), href: "/pages/about" },
+    { name: t("header.services",language), href: "/pages/services" },
+    { name: t("header.contact",language), href: "/pages/contact" },
+  ];
   return (
     <footer className={styles.footer}>
       <div className={container}>
@@ -46,7 +50,12 @@ function Footer({ onClick, container }) {
               +49 176 66607523
             </a>
             <HeaderContactGroup className={styles.container} />
-            <MainButton label={"Get a Consultation"} withIcon={true} width={"100%"} onClick={onClick} />
+            <MainButton
+               label={t("main.buttons.get_consultation",language)}
+              withIcon={true}
+              width={"100%"}
+              onClick={onClick}
+            />
           </div>
         </div>
       </div>

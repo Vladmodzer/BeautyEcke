@@ -12,12 +12,16 @@ import VerifiedIcon from "@/app/components/heroicons/VerifiedIcon/VerifiedIcon";
 import Image from "next/image";
 
 function pageAbout() {
-  const { overlayOpen } = useMenu();
+  const { overlayOpen, t, language } = useMenu();
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);
   };
+  const [setConsultationForm] = useState(false);
 
+  const handleConsultationForm = () => {
+    setConsultationForm((prev) => !prev);
+  };
   return (
     <div className={`primaryOuterContainer ${overlayOpen ? "overlay" : ""}`}>
       <MobileMenu />
@@ -28,55 +32,69 @@ function pageAbout() {
           <div className="container">
             <div className={styles.borderBox}>
               <div className={styles.photoBox}>
-                <Image 
-                className={styles.photo}
-                alt={"photo"}
-                src={"https://permanent-63.ru/wp-content/webpc-passthru.php?src=https://permanent-63.ru/wp-content/uploads/Kate1.png&nocache=1"}
-                width={500}
-                height={500}
+                <Image
+                  className={styles.photo}
+                  alt={"photo"}
+                  src={
+                    "https://permanent-63.ru/wp-content/webpc-passthru.php?src=https://permanent-63.ru/wp-content/uploads/Kate1.png&nocache=1"
+                  }
+                  width={500}
+                  height={500}
                 />
               </div>
               <div className={styles.textsBox}>
-                
                 <ul className={styles.checksBox}>
                   <li>
-                  <h3 className={styles.textBox}>
-                  <span>Leading master</span>
-                  <span>Ekaterina Birukova</span>
-                </h3>
+                    <h3 className={styles.textBox}>
+                      <span>{t("main.about.master.position", language)}</span>
+                      <span>{t("main.about.master.name", language)}</span>
+                    </h3>
                   </li>
                   <li>
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
-                      <span>Performed more than 1000 procedures</span>
+                      <span>
+                        {t("main.about.master.achievements.0", language)}
+                      </span>
                     </div>
                   </li>
                   <li>
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
-                      <span>Performed more than 1000 procedures</span>
+                      <span>
+                        {t("main.about.master.achievements.0", language)}
+                      </span>
                     </div>
                   </li>
                   <li>
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
-                      <span>More than 100 students around the world</span>
+                      <span>
+                        {t("main.about.master.achievements.1", language)}
+                      </span>
                     </div>
                   </li>
                   <li>
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
-                      <span>Conducted training in Italy at the opening of the salon</span>
+                      <span>
+                        {t("main.about.master.achievements.2", language)}
+                      </span>
                     </div>
                   </li>
                   <li>
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
-                      <span>Catherine's tattoo techniques are in demand in Europe</span>
+                      <span>
+                        {t("main.about.master.achievements.3", language)}
+                      </span>
                     </div>
                   </li>
                 </ul>
-                <MainButton  onClick={handleReserveForm }/>
+                <MainButton
+                  label={t("main.buttons.book_appointment", language)}
+                  onClick={handleReserveForm}
+                />
               </div>
             </div>
           </div>
@@ -86,7 +104,9 @@ function pageAbout() {
             <div className="contact-header">
               <h2 className="contact-title-background">contact</h2>
               <div className="contact-title-wrap">
-                <h2 className="contact-title-foreground">contact us!</h2>
+                <h2 className="contact-title-foreground">
+                  {t("main.contact.title", language)}
+                </h2>
               </div>
             </div>
             <p>
@@ -109,7 +129,11 @@ function pageAbout() {
                   className={"contact-icon-wrap"}
                   iconStyle={"icon-contact"}
                 />
-                <MainButton label={"Get a Consultation"} withIcon={true} onClick={handleReserveForm } />
+                <MainButton
+                  withIcon={true}
+                  label={t("main.buttons.get_consultation",language)}
+                  onClick={handleConsultationForm}
+                />
               </div>
               <div className="contact-map">
                 {/* Карта */}
