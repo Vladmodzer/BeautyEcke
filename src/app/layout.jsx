@@ -1,6 +1,7 @@
 // src/app/layout.jsx
 import localFont from "next/font/local";
 import "./globals.css";
+import 'normalize.css';
 import ClientProvider from "./ClientProvider";
 
 

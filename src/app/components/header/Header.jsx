@@ -22,7 +22,9 @@ function Header({ onClick, container }) {
 
   return (
     <header>
-      <div className={container}>
+      <div className={`${container} `}
+      style={ {display:"block"}}
+      >
         <div className={styles.header}>
           <div className={styles.logo}>
             <Link href="/">
