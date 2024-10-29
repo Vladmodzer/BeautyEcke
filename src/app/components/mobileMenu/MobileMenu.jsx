@@ -3,6 +3,7 @@ import { useState } from "react"; // Импортируем useState для уп
 import { UseMenu } from "@/app/ClientProvider";
 import styles from "./mobileMenu.module.css";
 import NavLink from "../header/navLink/NavLink";
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -47,6 +48,7 @@ function MobileMenu() {
             })}
           </ul>
         </nav>
+        <LanguageSelector style={{ marginLeft: '10%' }} />
       </div>
     </div>
   );

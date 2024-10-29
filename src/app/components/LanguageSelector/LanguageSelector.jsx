@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { UseMenu } from "../../ClientProvider"; // Импортируйте UseMenu
 import styles from "./languageSelector.module.css";
 
-const LanguageSelector = () => {
+const LanguageSelector = ({style}) => {
   const { language, changeLanguage } = UseMenu(); // Деструктуризация контекста
   const [isOpen, setIsOpen] = useState(false);
 
@@ -14,7 +14,7 @@ const LanguageSelector = () => {
 
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={style}>
       <button
         type="button"
         className={styles.button}
