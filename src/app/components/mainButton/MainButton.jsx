@@ -18,7 +18,7 @@ function MainButton({
       title={title || "Reserve"}
       style={{
         backgroundColor: bg || `var(--color--luminous-vivid-amber)`,
-        width: width || "clamp(150px, 25vw, 200px);", // Увеличенная минимальная ширина
+        width: width || "clamp(150px, 25vw, 200px)", // Увеличенная минимальная ширина
         color: `var(--color--black)`,
         border: "none",
         cursor: "pointer",
@@ -36,6 +36,7 @@ function MainButton({
     >
       {withIcon && (
         <span
+        className={styles.calendarBox}
           style={{
             display: "flex",
             justifyContent: "center",

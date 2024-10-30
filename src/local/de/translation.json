@@ -6,21 +6,21 @@
     "about": "Über uns",
     "services": "Dienstleistungen",
     "contact": "Kontakt",
-    "button": "reservieren"
+    "button": "Reservieren"
   },
   "main": {
     "welcome": {
       "title": "Permanent Make-up",
       "subtitle": "Studio in Essen",
-      "master_info": "Führende Meisterin Ekaterina Birukova,",
-      "master_info_1": "Expertin für Permanent Make-up mit jahrelanger Erfahrung.",
+      "master_info": "Leitender Meister Ekaterina Birukova,",
+      "master_info_1": "eine Permanent-Make-up-Expertin mit jahrelanger Erfahrung.",
       "tattoos": {
-        "eyebrow": "Augenbrauentätowierung",
-        "lip": "Lippentätowierung",
-        "eyelid": "Lid tätowierung"
+        "eyebrow": "Augenbrauen-Tattoo",
+        "lip": "Lippen-Tattoo",
+        "eyelid": "Lider-Tattoo"
       },
       "price_info": "Permanent Make-up für jeden Bereich ab 300 Euro",
-      "you_will": "Sie werden das tägliche Make-up nach dem Permanent Make-up-Verfahren vergessen."
+      "you_will": "Sie werden nach dem Permanent-Make-up-Verfahren das tägliche Make-up vergessen."
     },
     "buttons": {
       "book_appointment": "Termin buchen",
@@ -28,55 +28,55 @@
     },
     "advantages": {
       "fast_and_painless": "Schnell und schmerzlos",
-      "procedure_duration": "Das Verfahren dauert 2 Stunden. Permanent Make-up ist 100% sicher und schmerzlos.",
-      "guarantee": "Wir garantieren das Fehlen von Konsequenzen nach dem Permanent Make-up.",
-      "beauty_update": "Eine schöne Auffrischung Ihres Aussehens. Verbessern Sie die natürliche Schönheit Ihres Gesichts."
+      "procedure_duration": "Der Eingriff dauert 2 Stunden. Permanent Make-up ist 100 % sicher und schmerzlos.",
+      "guarantee": "Wir garantieren das Fehlen von Folgen nach dem Permanent-Make-up.",
+      "beauty_update": "Eine schöne Auffrischung Ihres Looks. Verbessern Sie die natürliche Schönheit Ihres Gesichts."
     },
     "price_section": {
       "title": "Preise für Permanent Make-up",
       "items": {
         "eyebrow": {
-          "title": "Permanent Augenbrauen-Make-up",
-          "duration": "Dauer des Verfahrens 1,5-2 Stunden",
+          "title": "Permanent Augenbrauen Make-up",
+          "duration": "Dauer des Verfahrens beträgt 1,5-2 Stunden",
           "price": "100$"
         },
         "eyelid": {
-          "title": "Permanent Lid-Make-up",
-          "duration": "Dauer des Verfahrens 1,5-2 Stunden",
+          "title": "Permanent Lid Make-up",
+          "duration": "Dauer des Verfahrens beträgt 1,5-2 Stunden",
           "price": "100$"
         },
         "lip": {
-          "title": "Permanent Lippen-Make-up",
-          "duration": "Dauer des Verfahrens 1,5-2 Stunden",
+          "title": "Permanent Lippen Make-up",
+          "duration": "Dauer des Verfahrens beträgt 1,5-2 Stunden",
           "price": "100$"
         },
         "correction": {
           "title": "Korrektur",
-          "duration": "Dauer des Verfahrens 1,5-2 Stunden",
+          "duration": "Dauer des Verfahrens beträgt 1,5-2 Stunden",
           "price": "100$"
         },
         "foundation_effect": {
           "title": "Foundation Effekt",
-          "duration": "Dauer des Verfahrens 1,5-2 Stunden",
+          "duration": "Dauer des Verfahrens beträgt 1,5-2 Stunden",
           "price": "100$"
         },
         "permanent_makeup": {
           "title": "Permanent Make-up",
-          "duration": "Dauer des Verfahrens 1,5-2 Stunden",
+          "duration": "Dauer des Verfahrens beträgt 1,5-2 Stunden",
           "price": "100$"
         }
       }
     },
     "portfolio": {
       "title": "Arbeitsbeispiele",
-      "footer": "Sehen Sie sich weitere Arbeitsbeispiele sowie Updates und Aktionen in unseren sozialen Medien an."
+      "footer": "Siehe mehr Beispiele für Arbeiten sowie Updates und Aktionen in unseren sozialen Medien."
     },
     "contact": {
       "title": "Kontaktieren Sie uns!",
-      "invitation": "Wir laden Fachleute zu unseren Permanent-Make-up-Schulungsprogrammen ein",
+      "invitation": "Wir laden Fachleute zu unseren Permanent-Make-up-Trainingsprogrammen ein",
       "info": {
         "studio_name": "Permanent Makeup Studio Beauty Ecke",
-        "lead_artist": "(Leitende Künstlerin \"Ekaterina Birukova\")",
+        "lead_artist": "(Leitender Künstler \"Ekaterina Birukova\")",
         "phone": "Telefon: +49 176 66607523",
         "location": "Standort: Essen Dahlhauser Str. 104C",
         "appointment_info": "Buchen Sie Ihren Termin über Viber/WhatsApp"
@@ -86,12 +86,12 @@
       "title": "Über uns",
       "master": {
         "name": "Ekaterina Birukova",
-        "position": "Leitende Meisterin",
+        "position": "Leitender Meister",
         "achievements": [
-          "Durchgeführt über 1000 Verfahren",
-          "Mehr als 100 Schüler weltweit",
-          "Schulungen zur Eröffnung eines Salons in Italien durchgeführt",
-          "Ekaterinas Tätowiertechniken sind in ganz Europa beliebt"
+          "Durchführung von mehr als 1000 Eingriffen",
+          "Über 100 Schüler weltweit",
+          "Durchführung von Schulungen in Italien zur Eröffnung eines Salons",
+          "Ekaterinas Tattoo-Techniken sind in ganz Europa beliebt"
         ]
       }
     }

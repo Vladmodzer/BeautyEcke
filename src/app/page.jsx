@@ -12,12 +12,40 @@ import Image from "next/image";
 import UserIconComponent from "./components/heroicons/IconCircle/UserIcon/UserIcon";
 import HeartIconComponent from "./components/heroicons/IconCircle/UserIcon/HeartIcon";
 import HeaderContactGroup from "./components/heroicons/header_contact_group/Header_contact_group";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GetConsultationForm from "@/app/components/getConsultationForm/GetConsultationForm";
 
 // import ScrollToTop from "./components/heroicons/ChevronUpIcon/ChevronUpIcon";
 
 export default function Home() {
+  useEffect(() => {
+    console.log("fetchTranslations!");
+
+    const fetchTranslations = async (ids) => {
+      try {
+        const response = await fetch("/api/fetchTranslations", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ids }), // Передаем массив ID
+        });
+
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Полученные переводы:", data);
+      } catch (error) {
+        console.error("Ошибка при получении переводов:", error);
+      }
+    };
+
+    // Запуск с примерным массивом ID
+    fetchTranslations([1, 2, 3]);
+  }, []);
+
   const { overlayOpen, t, language } = UseMenu();
 
   const [isReserveForm, setReserveForm] = useState(false);

@@ -1,6 +1,7 @@
 {
   "name": "birukova_lendyng",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -15,6 +16,7 @@
     "autoprefixer": "^10.4.20",
     "dotenv": "^16.4.5",
     "i18next": "^23.16.2",
+    "mongodb": "^6.10.0",
     "next": "14.2.14",
     "next-i18next": "^15.3.1",
     "normalize.css": "^8.0.1",
