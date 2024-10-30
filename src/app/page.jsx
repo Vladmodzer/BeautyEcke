@@ -72,7 +72,7 @@ export default function Home() {
       <Header onClick={handleReserveForm} container={"container"} />
       <main className="home_main">
         <div className="bg">
-          <video autoPlay loop muted>
+          <video  autoPlay loop muted preload="auto">
             <source src="/bg.mp4" type="video/mp4" />
           </video>
           <div className="container">
