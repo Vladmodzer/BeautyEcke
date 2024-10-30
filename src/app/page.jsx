@@ -5,7 +5,8 @@ import Footer from "@/app/components/footer/Footer";
 import { UseMenu } from "./ClientProvider";
 import MobileMenu from "./components/mobileMenu/MobileMenu";
 import ReserveForm from "./components/reserveForm/ReserveForm";
-import imgBg from "./../../public/img/bg.jpg";
+import imgBg from "../../public/img/bg.jpg";
+
 import VerifiedIcon from "./components/heroicons/VerifiedIcon/VerifiedIcon";
 import MainButton from "./components/mainButton/MainButton";
 import Image from "next/image";
@@ -71,13 +72,9 @@ export default function Home() {
       <Header onClick={handleReserveForm} container={"container"} />
       <main className="home_main">
         <div className="bg">
-          <Image
-            src={imgBg.src}
-            alt="Описание фонового изображения"
-            fill // Теперь используется свойство fill
-            style={{ objectFit: "cover" }} // Используйте стиль CSS для управления масштабированием
-            priority // Добавьте приоритет, если изображение важно для LCP
-          />
+          <video autoPlay loop muted>
+            <source src="/bg.mp4" type="video/mp4" />
+          </video>
           <div className="container">
             <section className="content">
               <div className="texts">
