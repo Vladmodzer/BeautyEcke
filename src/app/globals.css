@@ -377,6 +377,22 @@ a:hover {
   border-radius: 10px; /* Небольшие закругления углов для эстетики */
 }
 
+.fullscreen-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+/* Скрытие контролов только для WebKit (например, Safari) */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+
+
 /* Добавляем медиазапросы для разных размеров экрана */
 @media (max-width: 768px) {
   .portfolio-grid {

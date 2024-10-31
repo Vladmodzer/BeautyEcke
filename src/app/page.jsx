@@ -72,9 +72,18 @@ export default function Home() {
       <Header onClick={handleReserveForm} container={"container"} />
       <main className="home_main">
         <div className="bg">
-          <video  autoPlay loop muted preload="auto">
+          <video
+            className="fullscreen-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+          >
             <source src="/bg.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
+
           <div className="container">
             <section className="content">
               <div className="texts">
