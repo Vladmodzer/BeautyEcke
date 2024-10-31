@@ -87,15 +87,14 @@ export default function Home() {
             Your browser does not support the video tag.
           </video>
           <Slider/>
-
           <div className="container">
             <section className="content">
               <div className="texts">
                 <h1>
-                  <span className="permanent">
+                  <span className="permanent spanLow">
                     {t("main.welcome.title", language)}
                   </span>
-                  <span className="studio">
+                  <span className="studio spanLow">
                     {t("main.welcome.subtitle", language)}
                   </span>
                 </h1>

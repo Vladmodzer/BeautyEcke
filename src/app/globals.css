@@ -78,7 +78,20 @@ img {
 ul {
   list-style: none; /* Убираем маркеры у списков */
 }
-
+span{
+  margin: 0;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  font-size: inherit;
+}
+h1{
+  margin: 0;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  font-size: inherit;
+}
 /* Основной контейнер для всего приложения */
 .container {
   max-width: 1440px; /* Максимальная ширина */
@@ -162,8 +175,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  
 }
-.texts h1 {
+.spanLow {
   font-size: clamp(20px, 3vw + 12px, 60px);
 
   /* Скрывает лишний текст, если он не помещается */
