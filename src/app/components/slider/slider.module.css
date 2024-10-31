@@ -1,0 +1,29 @@
+.sliderContainer {
+    position: absolute;
+    width: 100%;
+    height: 400px; /* или другая желаемая высота */
+    overflow: hidden;
+  }
+  
+  .sliderImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* обеспечивает правильное обрезание изображения */
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* плавный переход для появления и исчезновения */
+  }
+  
+  .active {
+    opacity: 1; /* изображение становится видимым */
+  }
+  
+
+@media(min-width: 769px) {
+    .sliderContainer {
+
+        display: none;
+    }
+}

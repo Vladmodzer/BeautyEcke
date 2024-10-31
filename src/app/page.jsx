@@ -15,6 +15,7 @@ import HeartIconComponent from "./components/heroicons/IconCircle/UserIcon/Heart
 import HeaderContactGroup from "./components/heroicons/header_contact_group/Header_contact_group";
 import { useEffect, useState } from "react";
 import GetConsultationForm from "@/app/components/getConsultationForm/GetConsultationForm";
+import Slider from "./components/slider/Slider";
 
 // import ScrollToTop from "./components/heroicons/ChevronUpIcon/ChevronUpIcon";
 
@@ -74,6 +75,7 @@ export default function Home() {
         <div className="bg">
           <video
             className="fullscreen-video"
+        
             autoPlay
             loop
             muted
@@ -84,6 +86,7 @@ export default function Home() {
             <source src="/bg.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
+          <Slider/>
 
           <div className="container">
             <section className="content">

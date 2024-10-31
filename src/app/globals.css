@@ -391,9 +391,9 @@ video::-webkit-media-controls {
   display: none !important;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .fullscreen-video {
-    object-fit: contain; /* Попробуйте использовать "contain" для мобильных */
+    display: none; /* Попробуйте использовать "contain" для мобильных */
   }
 }
 
