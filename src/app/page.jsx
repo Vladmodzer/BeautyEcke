@@ -81,6 +81,7 @@ export default function Home() {
             preload="auto"
           >
             <source src="/bg.mp4" type="video/mp4" />
+            <source src="/bg.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
 
