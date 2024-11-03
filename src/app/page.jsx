@@ -73,14 +73,7 @@ export default function Home() {
       <Header onClick={handleReserveForm} container={"container"} />
       <main className="home_main">
         <div className="bg">
-          <Image
-              className="fullscreen-video"
-              src="/bg.gif"
-              alt="Background animation"
-              layout="fill"
-              objectFit="cover"
-              priority // чтобы подгрузка была приоритетной для фона
-          ></Image>
+         
           <Slider />
           <div className="container">
             <section className="content">

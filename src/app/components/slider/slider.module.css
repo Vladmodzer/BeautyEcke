@@ -21,9 +21,3 @@
   }
   
 
-@media(min-width: 769px) {
-    .sliderContainer {
-
-        display: none;
-    }
-}
