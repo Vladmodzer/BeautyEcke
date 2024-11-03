@@ -73,20 +73,15 @@ export default function Home() {
       <Header onClick={handleReserveForm} container={"container"} />
       <main className="home_main">
         <div className="bg">
-          <video
-            className="fullscreen-video"
-        
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          >
-            <source src="/bg.mp4" type="video/mp4" />
-            <source src="/bg.webm" type="video/webm" />
-            Your browser does not support the video tag.
-          </video>
-          <Slider/>
+          <Image
+              className="fullscreen-video"
+              src="/bg.gif"
+              alt="Background animation"
+              layout="fill"
+              objectFit="cover"
+              priority // чтобы подгрузка была приоритетной для фона
+          ></Image>
+          <Slider />
           <div className="container">
             <section className="content">
               <div className="texts">
