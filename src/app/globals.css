@@ -8,7 +8,7 @@
   --color--pale-pink: #f78da7;
   --color--vivid-red: #3f1212;
   --color--luminous-vivid-orange: #ff6900;
-  --color--luminous-vivid-amber: #f1af09;
+  --color--luminous-vivid-amber: #FF69B4;
   --color--luminous-vivid-amber-light: #f2d17d;
   --color--light-green-cyan: #7bdcb5;
   --color--vivid-green-cyan: #00d084;
@@ -16,17 +16,19 @@
   --color--vivid-cyan-blue: #0693e3;
   --color--vivid-purple: #9b51e0;
   --color--dark-gray: #1a1a1a; /* Темный фон */
-  --color--light-gray: #ccc; /* Светло-серый цвет */
+ 
   --color--medium-gray: #333; /* Новый цвет для #333 */
   --color--light-gray: #4a4a4a;
+  --button-hover:#ed92aa;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #FFB6C1;
     --foreground: #ededed;
   }
 }
+
 
 html,
 body {
@@ -46,9 +48,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  min-height: 100vh;
+  height: 100% !important;
   /* its for safary */
-  overflow-x: visible; 
+  overflow-x: visible;
+  color: var(--color--white);
 }
 
 * {
@@ -57,16 +60,7 @@ body {
   margin: 0;
 }
 
-html,
-body {
-  height: 100vh;
-  font-family: Arial, sans-serif; /* Шрифт по умолчанию */
-  min-height: 100vh;
 
-  margin: 0;
-  padding: 0; /* Включает вертикальный скролл всегда */
-  /* Показывает скролл только при необходимости */
-}
 
 
 /* Дополнительные стили для поддержки браузеров */
@@ -112,18 +106,18 @@ h1{
   min-height: 100vh;
   overflow-y: scroll !important;
 }
-.overlay {
+/* .overlay {
   background-color: var(
     --color--black
-  ); /* Синий цвет фона с прозрачностью 30% */
+  ); 
   opacity: 0.5;
-}
+} */
 
 /* Основной контейнер для всего приложения */
 
 /* Общие стили для ссылок */
 a {
-  color: var(--color--white); /* Цвет ссылок */
+  color: var(--color--black); /* Цвет ссылок */
   text-decoration: none; /* Убираем подчеркивание */
 }
 
@@ -306,8 +300,8 @@ a:hover {
   transform: translateY(-3px); /* Hover effect */
 }
 .cardTitle {
-  background: var(--color--black);
-  color: var(--color--white);
+  background: var(--background);
+  color: var(--color--black);
   width: 100%;
   height: 65px;
   display: flex;

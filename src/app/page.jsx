@@ -21,7 +21,7 @@ import Slider from "./components/slider/Slider";
 
 export default function Home() {
   useEffect(() => {
-    console.log("fetchTranslations!");
+
 
     const fetchTranslations = async (ids) => {
       try {
@@ -38,7 +38,7 @@ export default function Home() {
         }
 
         const data = await response.json();
-        console.log("Полученные переводы:", data);
+        console.log("Полученные переводы c сервера:", data);
       } catch (error) {
         console.error("Ошибка при получении переводов:", error);
       }
@@ -48,7 +48,7 @@ export default function Home() {
     fetchTranslations([1, 2, 3]);
   }, []);
 
-  const { overlayOpen, t, language } = UseMenu();
+  const { t, language } = UseMenu();
 
   const [isReserveForm, setReserveForm] = useState(false);
 
@@ -62,7 +62,7 @@ export default function Home() {
   };
 
   return (
-    <div className={`primaryOuterContainer ${overlayOpen ? "overlay" : ""}`}>
+    <div className={`primaryOuterContainer `}>
       <div id="top"></div>
       {isReserveForm && <ReserveForm onClick={handleReserveForm} />}
       <MobileMenu />
@@ -75,7 +75,7 @@ export default function Home() {
         <div className="bg">
          
           <Slider />
-          <div className="container">
+          <div className="container" >
             <section className="content">
               <div className="texts">
                 <h1>
@@ -181,6 +181,7 @@ export default function Home() {
                   <MainButton
                     label={t("header.button", language)}
                     onClick={handleReserveForm}
+                    bg={"var(--background)"}
                   />
                 </div>
               </div>
@@ -202,6 +203,7 @@ export default function Home() {
                   <MainButton
                     label={t("header.button", language)}
                     onClick={handleReserveForm}
+                    bg={"var(--background)"}
                   />
                 </div>
               </div>
@@ -223,6 +225,7 @@ export default function Home() {
                   <MainButton
                     label={t("header.button", language)}
                     onClick={handleReserveForm}
+                    bg={"var(--background)"}
                   />
                 </div>
               </div>
@@ -244,6 +247,7 @@ export default function Home() {
                   <MainButton
                     label={t("header.button", language)}
                     onClick={handleReserveForm}
+                    bg={"var(--background)"}
                   />
                 </div>
               </div>
@@ -265,6 +269,7 @@ export default function Home() {
                   <MainButton
                     label={t("header.button", language)}
                     onClick={handleReserveForm}
+                    bg={"var(--background)"}
                   />
                 </div>
               </div>
@@ -286,6 +291,7 @@ export default function Home() {
                   <MainButton
                     label={t("header.button", language)}
                     onClick={handleReserveForm}
+                    bg={"var(--background)"}
                   />
                 </div>
               </div>

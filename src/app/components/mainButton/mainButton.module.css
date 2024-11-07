@@ -1,5 +1,5 @@
 .container:hover {
-  background: var(--color--luminous-vivid-amber-light) !important;
+  background: var(--button-hover) !important;
 }
 .calendarBox {
   width: 11px;

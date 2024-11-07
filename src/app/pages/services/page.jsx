@@ -37,99 +37,136 @@ function PageServices() {
             <div className="cardContainer">
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
                   <MainButton
-                   label={t("header.button",language)}
-                   onClick={handleReserveForm} />
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                    bg={"var(--background)"}
+                  />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
                   <MainButton
-                   label={t("header.button",language)}
-                   onClick={handleReserveForm} />
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                    bg={"var(--background)"}
+                  />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
+                  <MainButton
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                    bg={"var(--background)"}
+                  />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
+                  <MainButton
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                    bg={"var(--background)"}
+                  />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
+                  <MainButton
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                    bg={"var(--background)"}
+                  />
                 </div>
               </div>
               <div className="card">
                 <div className="cardTitle">
-                  <span> {t("main.price_section.items.eyebrow.title",language)}</span>
+                  <span>
+                    {" "}
+                    {t("main.price_section.items.eyebrow.title", language)}
+                  </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                {t("main.price_section.items.eyebrow.duration",language)}
+                  {t("main.price_section.items.eyebrow.duration", language)}
                 </p>
                 <p>100$</p>
                 <div className="cardButton">
-                  <MainButton  label={t("header.button",language)} onClick={handleReserveForm} />
+                  <MainButton
+                    label={t("header.button", language)}
+                    onClick={handleReserveForm}
+                    bg={"var(--background)"}
+                  />
                 </div>
               </div>
-              
             </div>
           </div>
         </section>

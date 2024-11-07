@@ -13,7 +13,7 @@ export function UseMenu() {
 }
 
 export default function ClientProvider({ children }) {
-  const [overlayOpen, setOverlayOpen] = useState(false); // Состояние для оверлея
+  // const [overlayOpen, setOverlayOpen] = useState(false); // Состояние для оверлея
   const [menuOpen, setMenuOpen] = useState(false); // Добавляем состояние для меню
   const [language, setLanguage] = useState("de"); // Добавляем состояние языка
   // Определяем переводы
@@ -58,7 +58,7 @@ const t = (key, language = "de") => {
     <MenuContext.Provider
       value={{
         menuOpen,
-        overlayOpen,
+        // overlayOpen,
         language,
         setLanguage,
         changeLanguage,

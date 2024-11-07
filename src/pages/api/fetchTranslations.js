@@ -12,7 +12,7 @@ export default async function fetchTranslations(req, res) {
     for (const id of ids) {
       const translationData = await db.collection("products").findOne({ id });
       if (!translationData) {
-        console.log(`No translation found for id: ${id}`);
+        // console.log(`No translation found for id: ${id}`);
         continue;
       }
 
