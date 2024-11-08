@@ -21,24 +21,24 @@ export default function ClientProvider({ children }) {
 
   // Функция для получения перевода
   // Функция для получения перевода по ключу
-const t = (key, language = "de") => {
-  const keys = key.split("."); // Разделяем путь по точкам
-  let result = translations[language]; // Начинаем с корневого объекта языка
+  const t = (key, language = "de") => {
+    const keys = key.split("."); // Разделяем путь по точкам
+    let result = translations[language]; // Начинаем с корневого объекта языка
 
-  for (let index = 0; index < keys.length; index++) { // Проходим по каждому ключу
-    const element = keys[index];
-    
-    // Проверяем, что текущий элемент существует, иначе возвращаем undefined
-    if (result && result[element] !== undefined) {
-      result = result[element]; // Углубляемся в объект
-    } else {
-      return undefined; // Если значение не найдено, возвращаем undefined
+    for (let index = 0; index < keys.length; index++) {
+      // Проходим по каждому ключу
+      const element = keys[index];
+
+      // Проверяем, что текущий элемент существует, иначе возвращаем undefined
+      if (result && result[element] !== undefined) {
+        result = result[element]; // Углубляемся в объект
+      } else {
+        return undefined; // Если значение не найдено, возвращаем undefined
+      }
     }
-  }
-  
-  return result; // Возвращаем найденный перевод
-};
 
+    return result; // Возвращаем найденный перевод
+  };
 
   // Функция для переключения состояния оверлея
   const handleOverlay = () => {

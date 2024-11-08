@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config(); // Загружает переменные окружения из .env файла
 
-const uri = process.env.MONGO_URI;
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 
 export const connectToDatabase = async () => {
