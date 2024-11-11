@@ -17,40 +17,18 @@ import { useEffect, useState } from "react";
 import GetConsultationForm from "@/app/components/getConsultationForm/GetConsultationForm";
 import Slider from "./components/slider/Slider";
 
-// import ScrollToTop from "./components/heroicons/ChevronUpIcon/ChevronUpIcon";
-
 export default function Home() {
-  useEffect(() => {
-
-
-    const fetchTranslations = async (ids) => {
-      try {
-        const response = await fetch("/api/fetchTranslations", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ ids }), // Передаем массив ID
-        });
-
-        if (!response.ok) {
-          throw new Error(`Error: ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        console.log("Полученные переводы c сервера:", data);
-      } catch (error) {
-        console.error("Ошибка при получении переводов:", error);
-      }
-    };
-
-    // Запуск с примерным массивом ID
-    fetchTranslations([1, 2, 3]);
-  }, []);
-
-  const { t, language } = UseMenu();
-
+  const { language, newData, fetchTranslations, mapDataToTextContent } =
+    UseMenu();
   const [isReserveForm, setReserveForm] = useState(false);
+
+  useEffect(() => {
+    fetchTranslations([1, 2, 3], language); // Замена на реальные ID, если они известны
+  }, [language]);
+  useEffect(() => {
+    // Логируем newData, когда оно обновится
+    // console.log("newData updated:", newData);
+  }, [newData, language]);
 
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);
@@ -73,58 +51,80 @@ export default function Home() {
       <Header onClick={handleReserveForm} container={"container"} />
       <main className="home_main">
         <div className="bg">
-         
           <Slider />
-          <div className="container" >
+          <div className="container">
             <section className="content">
               <div className="texts">
                 <h1>
                   <span className="permanent spanLow">
-                    {t("main.welcome.title", language)}
+                    {/* {t("main.welcome.title", language)} */}
+
+                    {mapDataToTextContent(newData, "main.welcome.title")}
                   </span>
                   <span className="studio spanLow">
-                    {t("main.welcome.subtitle", language)}
+                    {mapDataToTextContent(newData, "main.welcome.subtitle")}
                   </span>
                 </h1>
                 <p className="master">
-                  <span>{t("main.welcome.master_info", language)}</span>
                   <span>
-                    &quot;{t("main.welcome.master_info_1", language)}&quot;
+                    {mapDataToTextContent(newData, "main.welcome.master_info")}
+                  </span>
+                  <span>
+                    &quot;
+                    {mapDataToTextContent(
+                      newData,
+                      "main.welcome.master_info_1"
+                    )}
+                    &quot;
                   </span>
                 </p>
 
                 <ul className="check_icons">
                   <li>
                     <VerifiedIcon />
-                    {t("main.welcome.tattoos.eyebrow", language)}
+
+                    {mapDataToTextContent(
+                      newData,
+                      "main.welcome.tattoos.eyebrow"
+                    )}
                   </li>
                   <li>
                     <VerifiedIcon />
-                    {t("main.welcome.tattoos.lip", language)}
+                    {mapDataToTextContent(newData, "main.welcome.tattoos.lip")}
                   </li>
                   <li>
                     <VerifiedIcon />
-                    {t("main.welcome.tattoos.eyelid", language)}
+
+                    {mapDataToTextContent(
+                      newData,
+                      "main.welcome.tattoos.eyelid"
+                    )}
                   </li>
                 </ul>
 
                 <p className="price">
-                  {t("main.welcome.price_info", language)}
+                  {mapDataToTextContent(newData, "main.welcome.price_info")}
                 </p>
 
                 <p className="youwill">
-                  {t("main.welcome.you_will", language)}
+                  {mapDataToTextContent(newData, "main.welcome.you_will")}
                 </p>
                 <div className="buttonBox">
                   <MainButton
                     onClick={handleReserveForm}
-                    label={t("main.buttons.book_appointment", language)}
+                    label={mapDataToTextContent(
+                      newData,
+                      "main.buttons.book_appointment"
+                    )}
                   />
                   <MainButton
                     withIcon={true}
                     onClick={handleConsultationForm}
                     bg={"var(--color--white)"}
-                    label={t("main.buttons.get_consultation", language)}
+                    label={mapDataToTextContent(
+                      newData,
+                      "main.buttons.get_consultation"
+                    )}
                   />
                 </div>
               </div>
@@ -136,18 +136,42 @@ export default function Home() {
           <div className="advantages">
             <div className="advantagesCard">
               <UserIconComponent />
-              <h3>{t("main.advantages.fast_and_painless", language)}</h3>
-              <p>{t("main.advantages.procedure_duration", language)}</p>
+              <h3>
+                {mapDataToTextContent(
+                  newData,
+                  "main.advantages.fast_and_painless"
+                )}
+              </h3>
+              <p>
+                {mapDataToTextContent(
+                  newData,
+                  "main.advantages.procedure_duration"
+                )}
+              </p>
             </div>
             <div className="advantagesCard">
               <HeartIconComponent />
-              <h3>{t("main.advantages.fast_and_painless", language)}</h3>
-              <p>{t("main.advantages.guarantee", language)}</p>
+              <h3>
+                {mapDataToTextContent(
+                  newData,
+                  "main.advantages.fast_and_painless"
+                )}
+              </h3>
+              <p>
+                {mapDataToTextContent(newData, "main.advantages.guarantee")}
+              </p>
             </div>
             <div className="advantagesCard">
               <HeartIconComponent />
-              <h3>{t("main.advantages.fast_and_painless", language)}</h3>
-              <p>{t("main.advantages.guarantee", language)}</p>
+              <h3>
+                {mapDataToTextContent(
+                  newData,
+                  "main.advantages.fast_and_painless"
+                )}
+              </h3>
+              <p>
+                {mapDataToTextContent(newData, "main.advantages.guarantee")}
+              </p>
             </div>
           </div>
         </div>
@@ -157,7 +181,7 @@ export default function Home() {
               <h2 className="price_section_price">Prices</h2>
               <div className="makeup_wrap">
                 <h3 className="price_section_makeup">
-                  {t("main.price_section.title", language)}
+                  {mapDataToTextContent(newData, "main.price_section.title",language)}
                 </h3>
               </div>
             </div>
@@ -167,19 +191,31 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {t("main.price_section.items.eyebrow.title", language)}
+                    {mapDataToTextContent(
+                      newData,
+                      "main.price_section.items.eyebrow.title",
+                      language
+                    )}
                   </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {t("main.price_section.items.eyebrow.duration", language)}
+                  {mapDataToTextContent(
+                    newData,
+                    "main.price_section.items.eyebrow.duration",language
+                  )}
                 </p>
-                <p>100$</p>
+                <p>
+                {mapDataToTextContent(
+                    newData,
+                    "main.price_section.items.eyebrow.price",language
+                  )}
+                </p>
                 <div className="cardButton">
                   <MainButton
-                    label={t("header.button", language)}
+                    label={mapDataToTextContent(newData, "header.button",language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -189,19 +225,30 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {t("main.price_section.items.eyebrow.title", language)}
+                    {mapDataToTextContent(
+                      newData,
+                      "main.price_section.items.eyelid.title",language
+                    )}
                   </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {t("main.price_section.items.eyebrow.duration", language)}
+                  {mapDataToTextContent(
+                    newData,
+                    "main.price_section.items.eyelid.duration",language
+                  )}
                 </p>
-                <p>100$</p>
+                <p>
+                {mapDataToTextContent(
+                      newData,
+                      "main.price_section.items.eyelid.price",language
+                    )}
+                </p>
                 <div className="cardButton">
                   <MainButton
-                    label={t("header.button", language)}
+                    label={mapDataToTextContent(newData, "header.button",language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -211,19 +258,28 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {t("main.price_section.items.eyebrow.title", language)}
+                    {mapDataToTextContent(
+                      newData,
+                      "main.price_section.items.lip.title",language
+                    )}
                   </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {t("main.price_section.items.eyebrow.duration", language)}
+                  {mapDataToTextContent(
+                    newData,
+                    "main.price_section.items.lip.duration",language
+                  )}
                 </p>
-                <p>100$</p>
+                <p> {mapDataToTextContent(
+                    newData,
+                    "main.price_section.items.lip.price",language
+                  )}</p>
                 <div className="cardButton">
                   <MainButton
-                    label={t("header.button", language)}
+                    label={mapDataToTextContent(newData, "header.button",language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -233,19 +289,28 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {t("main.price_section.items.eyebrow.title", language)}
+                    {mapDataToTextContent(
+                      newData,
+                      "main.price_section.items.correction.title",language
+                    )}
                   </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {t("main.price_section.items.eyebrow.duration", language)}
+                  {mapDataToTextContent(
+                    newData,
+                    "main.price_section.items.correction.duration",language
+                  )}
                 </p>
-                <p>100$</p>
+                <p>{mapDataToTextContent(
+                    newData,
+                    "main.price_section.items.correction.price",language
+                  )}</p>
                 <div className="cardButton">
                   <MainButton
-                    label={t("header.button", language)}
+                    label={mapDataToTextContent(newData, "header.button",language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -255,19 +320,28 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {t("main.price_section.items.eyebrow.title", language)}
+                    {mapDataToTextContent(
+                      newData,
+                      "main.price_section.items.foundation_effect.title",language
+                    )}
                   </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {t("main.price_section.items.eyebrow.duration", language)}
+                  {mapDataToTextContent(
+                    newData,
+                    "main.price_section.items.foundation_effect.duration",language
+                  )}
                 </p>
-                <p>100$</p>
+                <p>{mapDataToTextContent(
+                    newData,
+                    "main.price_section.items.foundation_effect.price",language
+                  )}</p>
                 <div className="cardButton">
                   <MainButton
-                    label={t("header.button", language)}
+                    label={mapDataToTextContent(newData, "header.button",language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -277,19 +351,28 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {t("main.price_section.items.eyebrow.title", language)}
+                    {mapDataToTextContent(
+                      newData,
+                      "main.price_section.items.permanent_makeup.title",language
+                    )}
                   </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {t("main.price_section.items.eyebrow.duration", language)}
+                  {mapDataToTextContent(
+                    newData,
+                    "main.price_section.items.permanent_makeup.duration",language
+                  )}
                 </p>
-                <p>100$</p>
+                <p>{mapDataToTextContent(
+                    newData,
+                    "main.price_section.items.permanent_makeup.price",language
+                  )}</p>
                 <div className="cardButton">
                   <MainButton
-                    label={t("header.button", language)}
+                    label={mapDataToTextContent(newData, "header.button",language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -304,7 +387,7 @@ export default function Home() {
               <h2 className="portfolio-title-background">PORTFOLIO</h2>
               <div className="portfolio-title-wrap">
                 <h2 className="portfolio-title-foreground">
-                  {t("main.portfolio.title", language)}
+                  {mapDataToTextContent(newData, "main.portfolio.title",language)}
                 </h2>
               </div>
             </div>
@@ -393,7 +476,7 @@ export default function Home() {
               </div>
             </div>
             <p className="portfolio-footer">
-              {t("main.portfolio.footer", language)}
+              {mapDataToTextContent(newData, "main.portfolio.footer",language)}
             </p>
           </div>
         </section>
@@ -403,7 +486,7 @@ export default function Home() {
               <h2 className="contact-title-background">contact</h2>
               <div className="contact-title-wrap">
                 <h2 className="contact-title-foreground">
-                  {t("main.contact.title", language)}
+                  {mapDataToTextContent(newData, "main.contact.title",language)}
                 </h2>
               </div>
             </div>
@@ -429,7 +512,10 @@ export default function Home() {
                 />
                 <MainButton
                   withIcon={true}
-                  label={t("main.buttons.get_consultation", language)}
+                  label={mapDataToTextContent(
+                    newData,
+                    "main.buttons.get_consultation",language
+                  )}
                   onClick={handleConsultationForm}
                 />
               </div>

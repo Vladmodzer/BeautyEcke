@@ -1,56 +1,42 @@
-import { connectToDatabase } from "../../db"; // Ensure the correct path to your database connection
-import fs from "fs";
-import path from "path";
+import { connectToDatabase } from "../../db"; // Убедитесь, что путь к соединению с БД правильный
 
 export default async function fetchTranslations(req, res) {
   if (req.method === "POST") {
-    const { ids } = req.body; // Expecting IDs in the request body
-    const db = await connectToDatabase();
+    const { ids } = req.body;
 
-    const translations = {};
-
-    for (const id of ids) {
-      const translationData = await db.collection("products").findOne({ id });
-      if (!translationData) {
-        // console.log(`No translation found for id: ${id}`);
-        continue;
-      }
-
-      // Paths for translation files
-      const languagesFiles = {
-        en: path.join(process.cwd(), "src/local/en/translation.json"),
-        de: path.join(process.cwd(), "src/local/de/translation.json"),
-        ru: path.join(process.cwd(), "src/local/ru/translation.json"),
-      };
-
-      for (const [lang, filePath] of Object.entries(languagesFiles)) {
-        let currentTranslations = {};
-        if (fs.existsSync(filePath)) {
-          const fileContent = fs.readFileSync(filePath, "utf8");
-          currentTranslations = JSON.parse(fileContent);
-        }
-
-        if (translationData[lang] && translationData[lang].main) {
-          currentTranslations.main = {
-            ...currentTranslations.main,
-            ...translationData[lang].main,
-          };
-        }
-
-        fs.writeFileSync(
-          filePath,
-          JSON.stringify(currentTranslations, null, 2),
-          "utf8"
-        );
-        // console.log(`Updated ${lang.toUpperCase()} translation saved to ${filePath} for ID ${id}`);
-      }
-
-      translations[id] = translationData;
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return res
+        .status(400)
+        .json({ error: "IDs are required and should be a non-empty array" });
     }
 
-    res.status(200).json(translations);
+    try {
+      const db = await connectToDatabase(); // Подключаемся к базе данных
+
+      const translations = {};
+
+      // Процесс получения данных для каждого ID
+      for (const id of ids) {
+        
+        const translationData = await db.collection("products").findOne({ id });
+        if (translationData) {
+          translations[id] = translationData;
+        } else {
+          console.log(`No translation found for id: ${id}`);
+        }
+      }
+
+      // Возвращаем только полученные данные без записи в файлы
+      // console.log("translations:", translations);
+
+      return res.status(200).json(translations);
+    } catch (error) {
+      console.error("Error in fetchTranslations:", error);
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
   } else {
+    // Поддерживаем только POST-метод
     res.setHeader("Allow", ["POST"]);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
+    return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }

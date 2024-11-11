@@ -12,7 +12,9 @@ import VerifiedIcon from "@/app/components/heroicons/VerifiedIcon/VerifiedIcon";
 import Image from "next/image";
 
 function PageAbout() {
-  const { overlayOpen, t, language } = UseMenu();
+  const { overlayOpen, mapDataToTextContent , language,newData,t } = UseMenu();
+  // console.log("PageAbout:",mapDataToTextContent(newData,"main.about.master.position"));
+  
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);
@@ -46,15 +48,20 @@ function PageAbout() {
                 <ul className={styles.checksBox}>
                   <li>
                     <h3 className={styles.textBox}>
-                      <span>{t("main.about.master.position", language)}</span>
-                      <span>{t("main.about.master.name", language)}</span>
+                      <span>
+                        {mapDataToTextContent(newData,"main.about.master.position")}
+                      </span>
+                      <span>
+                      {mapDataToTextContent(newData,"main.about.master.name")}
+                      </span>
                     </h3>
                   </li>
                   <li>
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
                       <span>
-                        {t("main.about.master.achievements.0", language)}
+         
+                        {mapDataToTextContent(newData,"main.about.master.achievements.0")}
                       </span>
                     </div>
                   </li>
@@ -62,7 +69,8 @@ function PageAbout() {
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
                       <span>
-                        {t("main.about.master.achievements.0", language)}
+                
+                        {mapDataToTextContent(newData,"main.about.master.achievements.1")}
                       </span>
                     </div>
                   </li>
@@ -70,7 +78,8 @@ function PageAbout() {
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
                       <span>
-                        {t("main.about.master.achievements.1", language)}
+        
+                        {mapDataToTextContent(newData,"main.about.master.achievements.2")}
                       </span>
                     </div>
                   </li>
@@ -78,18 +87,20 @@ function PageAbout() {
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
                       <span>
-                        {t("main.about.master.achievements.2", language)}
+ 
+                        {mapDataToTextContent(newData,"main.about.master.achievements.3")}
                       </span>
                     </div>
                   </li>
-                  <li>
+                  {/* <li>
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
                       <span>
-                        {t("main.about.master.achievements.3", language)}
+       
+                        {mapDataToTextContent(newData,"main.about.master.achievements.4")}
                       </span>
                     </div>
-                  </li>
+                  </li> */}
                 </ul>
                 <MainButton
                   label={t("main.buttons.book_appointment", language)}

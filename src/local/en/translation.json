@@ -3,10 +3,10 @@
     "title": "Permanent Makeup Studio",
     "contact_us": "Contact Us",
     "home": "Home",
-    "about": "About",
+    "about": "About Us",
     "services": "Services",
     "contact": "Contact",
-    "button": "Reserve"
+    "button": "Book Now"
   },
   "main": {
     "welcome": {
@@ -98,7 +98,7 @@
   },
   "footer": {
     "home": "Home",
-    "about": "About",
+    "about": "About Us",
     "services": "Services",
     "contact": "Contact"
   }

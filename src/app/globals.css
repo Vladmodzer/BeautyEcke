@@ -117,7 +117,7 @@ h1{
 
 /* Общие стили для ссылок */
 a {
-  color: var(--color--black); /* Цвет ссылок */
+  color: var(--color--white); 
   text-decoration: none; /* Убираем подчеркивание */
 }
 

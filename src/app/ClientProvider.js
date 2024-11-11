@@ -1,6 +1,6 @@
 "use client"; // Указывает, что это клиентский компонент
 
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import en from "../local/en/translation.json"; // Импортируйте ваши переводы
 import de from "../local/de/translation.json";
 import ru from "../local/ru/translation.json";
@@ -16,10 +16,10 @@ export default function ClientProvider({ children }) {
   // const [overlayOpen, setOverlayOpen] = useState(false); // Состояние для оверлея
   const [menuOpen, setMenuOpen] = useState(false); // Добавляем состояние для меню
   const [language, setLanguage] = useState("de"); // Добавляем состояние языка
+  const [newData, setNewData] = useState({});
   // Определяем переводы
   const translations = { en, de, ru };
 
-  // Функция для получения перевода
   // Функция для получения перевода по ключу
   const t = (key, language = "de") => {
     const keys = key.split("."); // Разделяем путь по точкам
@@ -40,10 +40,6 @@ export default function ClientProvider({ children }) {
     return result; // Возвращаем найденный перевод
   };
 
-  // Функция для переключения состояния оверлея
-  const handleOverlay = () => {
-    setOverlayOpen((prevOverlayOpen) => !prevOverlayOpen); // Используем функциональное обновление
-  };
   // Функция для переключения состояния меню
   const handleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -53,18 +49,58 @@ export default function ClientProvider({ children }) {
     setLanguage(newLang);
     // console.log("newLang:", newLang);
   };
+  // Обновленная функция для тестирования
+  // console.log("language:",language);
+
+  const fetchTranslations = async (ids, lang) => {
+    const langNums = { en: 1, de: 2, ru: 3 };
+    try {
+      // Используем URL сервера для проверки
+      const response = await fetch("/api/fetchTranslations", {
+        // укажите URL, если нужно
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ids }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch translations");
+      }
+
+      const data = await response.json();
+
+      // Извлекаем поле main для текущего языка
+      // console.log(" fetchTranslations-language:", lang);
+     
+
+      const mainData = data[langNums[lang]][lang];
+      // console.log("ClientProvider-mainData:", mainData);
+      setNewData(mainData);
+    } catch (error) {
+      console.error("Ошибка при получении переводов:", error);
+    }
+  };
+  const mapDataToTextContent = (data, keyPath) => {
+    return keyPath
+      .split(".")
+      .reduce(
+        (acc, key) => (acc && acc[key] !== undefined ? acc[key] : undefined),
+        data
+      );
+  };
 
   return (
     <MenuContext.Provider
       value={{
         menuOpen,
-        // overlayOpen,
         language,
+        newData,
+        fetchTranslations,
         setLanguage,
         changeLanguage,
-        handleOverlay,
         handleMenu,
-        t, // Передаем функцию t в контекст
+        t,
+        mapDataToTextContent,
       }}
     >
       {children}

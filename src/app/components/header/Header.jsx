@@ -14,17 +14,16 @@ function Header({ onClick, container }) {
   const { t, language } = UseMenu();
 
   const navItems = [
-    { name: t("header.home",language), href: "/" },
-    { name: t("header.about",language), href: "/pages/about" },
-    { name: t("header.services",language), href: "/pages/services" },
-    { name: t("header.contact",language), href: "/pages/contact" },
+    { name: t("header.home", language), href: "/" },
+    { name: t("header.about", language), href: "/pages/about" },
+    { name: t("header.services", language), href: "/pages/services" },
+    { name: t("header.contact", language), href: "/pages/contact" },
   ];
+  console.log("header.home:",t("header.home", language));
 
   return (
     <header>
-      <div className={`${container} `}
-      style={ {display:"block"}}
-      >
+      <div className={`${container} `} style={{ display: "block" }}>
         <div className={styles.header}>
           <div className={styles.logo}>
             <Link href="/">
@@ -52,9 +51,11 @@ function Header({ onClick, container }) {
             <div className={styles.languageBox}>
               <LanguageSelector />
             </div>
-            <MainButton 
-            label={t("header.button",language)}
-            width={"clamp(80px, 25vw, 100px)"} onClick={onClick} />
+            <MainButton
+              label={t("header.button", language)}
+              width={"clamp(80px, 25vw, 100px)"}
+              onClick={onClick}
+            />
             <a href="tel:+4917666607523" className={styles.phone}>
               +49 176 66607523
             </a>
