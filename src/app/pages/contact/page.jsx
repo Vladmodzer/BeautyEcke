@@ -2,6 +2,7 @@
 
 import { UseMenu } from "@/app/ClientProvider";
 import Footer from "@/app/components/footer/Footer";
+import GetConsultationForm from "@/app/components/getConsultationForm/GetConsultationForm";
 import Header from "@/app/components/header/Header";
 import HeaderContactGroup from "@/app/components/heroicons/header_contact_group/Header_contact_group";
 import MainButton from "@/app/components/mainButton/MainButton";
@@ -10,23 +11,22 @@ import ReserveForm from "@/app/components/reserveForm/ReserveForm";
 import { useState } from "react";
 
 function PageContact() {
-  const { overlayOpen, t, language } = UseMenu();
+  const { mapDataToTextContent, handleConsultationForm, isConsultationForm } =
+    UseMenu();
   const [isReserveForm, setReserveForm] = useState(false);
 
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);
   };
-  const [setConsultationForm] = useState(false);
-
-  const handleConsultationForm = () => {
-    setConsultationForm((prev) => !prev);
-  };
 
   return (
-    <div className={`primaryOuterContainer ${overlayOpen ? "overlay" : ""}`}>
+    <div className={`primaryOuterContainer `}>
       <MobileMenu />
       {isReserveForm && <ReserveForm onClick={handleReserveForm} />}
       <Header onClick={handleReserveForm} container={"container"} />
+      {isConsultationForm && (
+        <GetConsultationForm onClick={handleConsultationForm} />
+      )}
       <main>
         <section className="contact">
           <div className="container">
@@ -34,7 +34,7 @@ function PageContact() {
               <h2 className="contact-title-background">contact</h2>
               <div className="contact-title-wrap">
                 <h2 className="contact-title-foreground">
-                  {t("main.contact.title", language)}
+                  {mapDataToTextContent("main.contact.title")}
                 </h2>
               </div>
             </div>
@@ -60,7 +60,7 @@ function PageContact() {
                 />
                 <MainButton
                   withIcon={true}
-                  label={t("main.buttons.get_consultation", language)}
+                  label={mapDataToTextContent("main.buttons.get_consultation")}
                   onClick={handleConsultationForm}
                 />
               </div>
@@ -81,7 +81,7 @@ function PageContact() {
           </div>
         </section>
       </main>
-      <Footer onClick={handleReserveForm} container={"container"} />
+      <Footer container={"container"} />
     </div>
   );
 }

@@ -24,7 +24,7 @@ const ReserveForm = ({ onClick }) => {
           </label>
 
           <MainButton
-          
+          name = {"getConsultation"}
           label={"Submit Request"} 
           type={"submit"} 
           />

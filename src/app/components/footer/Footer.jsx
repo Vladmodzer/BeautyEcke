@@ -7,16 +7,19 @@ import MainButton from "../mainButton/MainButton";
 import HeaderContactGroup from "../heroicons/header_contact_group/Header_contact_group";
 import { UseMenu } from "@/app/ClientProvider";
 
-function Footer({ onClick, container }) {
+function Footer({ container }) {
   const pathname = usePathname();
 
-  const { t, language } = UseMenu();
+  const { t, language,handleConsultationForm, mapDataToTextContent, } = UseMenu();
   const navItems = [
     { name: t("header.home",language), href: "/" },
     { name: t("header.about",language), href: "/pages/about" },
     { name: t("header.services",language), href: "/pages/services" },
     { name: t("header.contact",language), href: "/pages/contact" },
   ];
+
+
+
   return (
     <footer className={styles.footer}>
       <div className={container}>
@@ -51,10 +54,11 @@ function Footer({ onClick, container }) {
             </a>
             <HeaderContactGroup className={styles.container} />
             <MainButton
-               label={t("main.buttons.get_consultation",language)}
+               label={mapDataToTextContent("main.buttons.get_consultation")}
+               
               withIcon={true}
               width={"100%"}
-              onClick={onClick}
+              onClick={handleConsultationForm}
             />
           </div>
         </div>

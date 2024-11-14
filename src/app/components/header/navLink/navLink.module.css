@@ -5,4 +5,5 @@
   color: var(--color--luminous-vivid-amber);
   text-decoration: none !important;
   opacity: 1 !important;
+  cursor: default;
 }

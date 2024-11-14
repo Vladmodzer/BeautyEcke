@@ -11,7 +11,7 @@ import { UseMenu } from "@/app/ClientProvider";
 
 function Header({ onClick, container }) {
   const pathname = usePathname();
-  const { t, language } = UseMenu();
+  const { t, language  } = UseMenu();
 
   const navItems = [
     { name: t("header.home", language), href: "/" },
@@ -19,7 +19,7 @@ function Header({ onClick, container }) {
     { name: t("header.services", language), href: "/pages/services" },
     { name: t("header.contact", language), href: "/pages/contact" },
   ];
-  console.log("header.home:",t("header.home", language));
+  // console.log("header.home:",t("header.home", language));
 
   return (
     <header>

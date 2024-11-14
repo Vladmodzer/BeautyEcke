@@ -17,9 +17,15 @@ export default function ClientProvider({ children }) {
   const [menuOpen, setMenuOpen] = useState(false); // Добавляем состояние для меню
   const [language, setLanguage] = useState("de"); // Добавляем состояние языка
   const [newData, setNewData] = useState({});
+  const [langPack, setLangPack] = useState({});
+  const [loading, setLoading] = useState(true); // Состояние для индикатора загрузки
   // Определяем переводы
+  const [isConsultationForm, setConsultationForm] = useState(false);
   const translations = { en, de, ru };
 
+  const handleConsultationForm = () => {
+    setConsultationForm((prev) => !prev);
+  };
   // Функция для получения перевода по ключу
   const t = (key, language = "de") => {
     const keys = key.split("."); // Разделяем путь по точкам
@@ -47,13 +53,10 @@ export default function ClientProvider({ children }) {
   // Функция для изменения языка
   const changeLanguage = (newLang) => {
     setLanguage(newLang);
-    // console.log("newLang:", newLang);
   };
-  // Обновленная функция для тестирования
-  // console.log("language:",language);
 
-  const fetchTranslations = async (ids, lang) => {
-    const langNums = { en: 1, de: 2, ru: 3 };
+  const fetchTranslations = async (ids) => {
+    setLoading(true);
     try {
       // Используем URL сервера для проверки
       const response = await fetch("/api/fetchTranslations", {
@@ -69,25 +72,67 @@ export default function ClientProvider({ children }) {
 
       const data = await response.json();
 
-      // Извлекаем поле main для текущего языка
-      // console.log(" fetchTranslations-language:", lang);
-     
+      const dataIsPacung = {};
+      dataIsPacung["en"] = data[1];
+      dataIsPacung["de"] = data[2];
+      dataIsPacung["ru"] = data[3];
 
-      const mainData = data[langNums[lang]][lang];
-      // console.log("ClientProvider-mainData:", mainData);
-      setNewData(mainData);
+      if (Object.keys(newData).length > 0) {
+        localStorage.setItem("newData", JSON.stringify(newData));
+        // console.log("localStorage was field");
+      }
+
+      setNewData(dataIsPacung);
     } catch (error) {
       console.error("Ошибка при получении переводов:", error);
+    } finally {
+      setLoading(false);
     }
   };
-  const mapDataToTextContent = (data, keyPath) => {
-    return keyPath
-      .split(".")
-      .reduce(
-        (acc, key) => (acc && acc[key] !== undefined ? acc[key] : undefined),
-        data
-      );
+
+  // Обновляем langPack, когда newData меняется
+  useEffect(() => {
+    if (newData[language]) {
+      setLangPack(newData[language]);
+    }
+  }, [newData, language]);
+
+  // Функция для маппинга данных в текстовый контент с использованием языка из контекста по умолчанию
+  const mapDataToTextContent = (keyPath, lan = language) => {
+    // Получаем данные из localStorage
+    const storedData = localStorage.getItem("newData"); // Здесь мы предполагаем, что ваши данные сохранены под ключом 'newData'
+
+    // Если данные не существуют в localStorage или они пустые, возвращаем пустую строку
+    if (!storedData) return "";
+
+    // Парсим данные из localStorage
+    const data = JSON.parse(storedData);
+
+    // Если данных нет или нет нужного языка, возвращаем пустую строку
+    if (!data || !data[lan]) return "";
+
+    // Разделяем ключ по точкам и пытаемся получить значение по ключу
+    return (
+      keyPath
+        .split(".")
+        .reduce((acc, key) => acc && acc[key], data[lan][lan]) || ""
+    );
   };
+   // Функция для отправки данных в WhatsApp
+   const sendToWhatsApp = (data) => {
+    console.log("sendToWhatsApp:",data);
+    
+    if (!data.name || !data.phone) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    const message = `${data.requestType} request:\nName: ${data.name}\nPhone: ${data.phone}`;
+    const whatsappURL = `https://wa.me/+4917666607523?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappURL, "_blank");
+  };
+
 
   return (
     <MenuContext.Provider
@@ -95,12 +140,18 @@ export default function ClientProvider({ children }) {
         menuOpen,
         language,
         newData,
+        langPack,
+        loading,
+        isConsultationForm, 
         fetchTranslations,
         setLanguage,
         changeLanguage,
         handleMenu,
-        t,
         mapDataToTextContent,
+        t,
+        setConsultationForm,
+        handleConsultationForm,
+        sendToWhatsApp,
       }}
     >
       {children}

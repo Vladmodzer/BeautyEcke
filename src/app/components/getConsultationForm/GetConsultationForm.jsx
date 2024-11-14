@@ -1,8 +1,19 @@
-import React from "react";
 import MainButton from "../mainButton/MainButton";
 import styles from "../reserveForm/reserveForm.module.css";
+import { UseMenu } from "@/app/ClientProvider";
 
 const GetConsultationForm = ({ onClick }) => {
+  const { sendToWhatsApp } = UseMenu();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = {
+      name: event.target.elements.name.value,
+      phone: event.target.elements.phone.value,
+      requestType: "Consultation",
+    };
+    sendToWhatsApp(formData);
+  };
   return (
     <div className={`${styles.reserveFormOverlay}`}>
       {/* Крестик в верхнем углу затемненного экрана */}
@@ -14,20 +25,16 @@ const GetConsultationForm = ({ onClick }) => {
         <h2>Beauty Ecke</h2>
         <h3>Get a consultation</h3>
 
-        <form className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <label>
-            <input type="text" placeholder="Name" />
+            <input name="name" type="text" placeholder="Name" />
           </label>
 
           <label>
-            <input type="text" placeholder="Phone" />
+            <input name="phone" type="text" placeholder="Phone" />
           </label>
 
-          <MainButton
-          
-          label={"Submit Request"} 
-          type={"submit"} 
-          />
+          <MainButton label={"Submit Request"} type={"submit"} />
         </form>
 
         <div className={styles.consentText}>
