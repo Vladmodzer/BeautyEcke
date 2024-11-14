@@ -120,7 +120,7 @@ export default function ClientProvider({ children }) {
   };
    // Функция для отправки данных в WhatsApp
    const sendToWhatsApp = (data) => {
-    console.log("sendToWhatsApp:",data);
+    console.log("sendToWhatsApp",data);
     
     if (!data.name || !data.phone) {
       alert("Please fill out all fields.");
