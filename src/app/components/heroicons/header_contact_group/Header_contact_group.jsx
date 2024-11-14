@@ -1,3 +1,4 @@
+"use client";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp, faViber } from '@fortawesome/free-brands-svg-icons';
 import { PhoneIcon } from "@heroicons/react/24/outline"; // Иконка телефона из Heroicons

@@ -13,15 +13,21 @@ import Image from "next/image";
 import GetConsultationForm from "@/app/components/getConsultationForm/GetConsultationForm";
 
 function PageAbout() {
-  const { overlayOpen, mapDataToTextContent, language, langPack, t,isConsultationForm ,handleConsultationForm} =
-    UseMenu();
+  const {
+    overlayOpen,
+    mapDataToTextContent,
+    language,
+    langPack,
+    t,
+    isConsultationForm,
+    handleConsultationForm,
+  } = UseMenu();
 
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);
   };
   const [setConsultationForm] = useState(false);
-
 
   return (
     <div className={`primaryOuterContainer ${overlayOpen ? "overlay" : ""}`}>
@@ -44,6 +50,7 @@ function PageAbout() {
                   }
                   width={500}
                   height={500}
+                  priority
                 />
               </div>
               <div className={styles.textsBox}>
@@ -160,7 +167,7 @@ function PageAbout() {
                   width="600"
                   height="450"
                   style={{ border: 0 }}
-                  allowFullScreen=""
+                  allow="fullscreen"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
@@ -169,7 +176,7 @@ function PageAbout() {
           </div>
         </section>
       </main>
-      <Footer  container={"container"} />
+      <Footer container={"container"} />
     </div>
   );
 }

@@ -72,7 +72,7 @@ function PageContact() {
                   width="600"
                   height="450"
                   style={{ border: 0 }}
-                  allowFullScreen=""
+                  allow="fullscreen"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />

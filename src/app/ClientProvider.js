@@ -99,25 +99,27 @@ export default function ClientProvider({ children }) {
 
   // Функция для маппинга данных в текстовый контент с использованием языка из контекста по умолчанию
   const mapDataToTextContent = (keyPath, lan = language) => {
-    // Получаем данные из localStorage
-    const storedData = localStorage.getItem("newData"); // Здесь мы предполагаем, что ваши данные сохранены под ключом 'newData'
-
-    // Если данные не существуют в localStorage или они пустые, возвращаем пустую строку
-    if (!storedData) return "";
-
-    // Парсим данные из localStorage
-    const data = JSON.parse(storedData);
-
-    // Если данных нет или нет нужного языка, возвращаем пустую строку
-    if (!data || !data[lan]) return "";
-
-    // Разделяем ключ по точкам и пытаемся получить значение по ключу
-    return (
-      keyPath
+    const [textContent, setTextContent] = useState("");
+  
+    useEffect(() => {
+      if (typeof window === "undefined") return;
+  
+      const storedData = localStorage.getItem("newData") ? localStorage.getItem("newData") : "";
+      if (!storedData) return;
+  
+      const data = JSON.parse(storedData);
+      if (!data || !data[lan]) return;
+  
+      const result = keyPath
         .split(".")
-        .reduce((acc, key) => acc && acc[key], data[lan][lan]) || ""
-    );
+        .reduce((acc, key) => acc && acc[key], data[lan][lan]) || "";
+  
+      setTextContent(result);
+    }, [keyPath, lan]);
+  
+    return textContent;
   };
+  
    // Функция для отправки данных в WhatsApp
    const sendToWhatsApp = (data) => {
     console.log("sendToWhatsApp",data);

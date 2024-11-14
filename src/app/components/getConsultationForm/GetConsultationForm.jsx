@@ -1,3 +1,4 @@
+"use client";
 import MainButton from "../mainButton/MainButton";
 import styles from "../reserveForm/reserveForm.module.css";
 import { UseMenu } from "@/app/ClientProvider";

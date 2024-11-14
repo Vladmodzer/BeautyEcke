@@ -1,3 +1,4 @@
+"use client";
 import { CalendarIcon } from "@heroicons/react/24/outline"; // Calendar icon import
 import styles from "./mainButton.module.css";
 

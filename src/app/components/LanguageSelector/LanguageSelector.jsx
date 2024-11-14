@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+"use client";
+import { useState } from "react";
 import { UseMenu } from "../../ClientProvider"; // Импортируйте UseMenu
 import styles from "./languageSelector.module.css";
 

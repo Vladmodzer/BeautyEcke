@@ -4,7 +4,6 @@
   gap: 10px;
   align-items: center;
   justify-content: center;
-
 }
 
 .link {
@@ -31,10 +30,14 @@
     color: var(--color--black);
   }
 }
-@media(max-width:320px){
+@media (max-width: 320px) {
   .icon {
     width: 18px;
     height: 18px;
-
+  }
+}
+@media (max-width: 425px) {
+  .container {
+    gap: 5px;
   }
 }

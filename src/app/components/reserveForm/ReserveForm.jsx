@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import MainButton from "../mainButton/MainButton";
 import styles from "./reserveForm.module.css";
