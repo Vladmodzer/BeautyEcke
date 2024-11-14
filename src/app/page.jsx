@@ -22,7 +22,7 @@ export default function Home() {
   const {
     language,
     fetchTranslations,
-    mapDataToTextContent,
+
     loading,
     isConsultationForm,
     handleConsultationForm,
@@ -61,19 +61,25 @@ export default function Home() {
                   <span className="permanent spanLow">
                     {/* {t("main.welcome.title", language)} */}
 
-                    {mapDataToTextContent("main.welcome.title")}
+                    {useMapDataToTextContent("main.welcome.title", language)}
                   </span>
                   <span className="studio spanLow">
-                    {mapDataToTextContent("main.welcome.subtitle")}
+                    {useMapDataToTextContent("main.welcome.subtitle", language)}
                   </span>
                 </h1>
                 <p className="master">
                   <span>
-                    {mapDataToTextContent("main.welcome.master_info")}
+                    {useMapDataToTextContent(
+                      "main.welcome.master_info",
+                      language
+                    )}
                   </span>
                   <span>
                     &quot;
-                    {mapDataToTextContent("main.welcome.master_info_1")}
+                    {useMapDataToTextContent(
+                      "main.welcome.master_info_1",
+                      language
+                    )}
                     &quot;
                   </span>
                 </p>
@@ -82,39 +88,51 @@ export default function Home() {
                   <li>
                     <VerifiedIcon />
 
-                    {mapDataToTextContent("main.welcome.tattoos.eyebrow")}
-                  </li>
-                  <li>
-                    <VerifiedIcon />
-                    {mapDataToTextContent("main.welcome.tattoos.lip")}
+                    {useMapDataToTextContent(
+                      "main.welcome.tattoos.eyebrow",
+                      language
+                    )}
                   </li>
                   <li>
                     <VerifiedIcon />
 
-                    {mapDataToTextContent("main.welcome.tattoos.eyelid")}
+                    {useMapDataToTextContent(
+                      "main.welcome.tattoos.lip",
+                      language
+                    )}
+                  </li>
+                  <li>
+                    <VerifiedIcon />
+
+                    {useMapDataToTextContent(
+                      "main.welcome.tattoos.eyelid",
+                      language
+                    )}
                   </li>
                 </ul>
 
                 <p className="price">
-                  {mapDataToTextContent("main.welcome.price_info")}
+                  {useMapDataToTextContent("main.welcome.price_info", language)}
                 </p>
 
                 <p className="youwill">
-                  {mapDataToTextContent("main.welcome.you_will")}
+                  {useMapDataToTextContent("main.welcome.you_will", language)}
                 </p>
                 <div className="buttonBox">
                   <MainButton
                     onClick={handleReserveForm}
-                    label={mapDataToTextContent(
-                      "main.buttons.book_appointment"
+                    label={useMapDataToTextContent(
+                      "main.buttons.book_appointment",
+                      language
                     )}
                   />
                   <MainButton
                     withIcon={true}
                     onClick={handleConsultationForm}
                     bg={"var(--color--white)"}
-                    label={mapDataToTextContent(
-                      "main.buttons.get_consultation"
+                    label={useMapDataToTextContent(
+                      "main.buttons.get_consultation",
+                      language
                     )}
                   />
                 </div>

@@ -8,11 +8,11 @@ import HeaderContactGroup from "@/app/components/heroicons/header_contact_group/
 import MainButton from "@/app/components/mainButton/MainButton";
 import MobileMenu from "@/app/components/mobileMenu/MobileMenu";
 import ReserveForm from "@/app/components/reserveForm/ReserveForm";
+import useMapDataToTextContent from "@/app/hooks/ useMapDataToTextContent";
 import { useState } from "react";
 
 function PageContact() {
-  const { mapDataToTextContent, handleConsultationForm, isConsultationForm } =
-    UseMenu();
+  const { handleConsultationForm, isConsultationForm, language } = UseMenu();
   const [isReserveForm, setReserveForm] = useState(false);
 
   const handleReserveForm = () => {
@@ -34,7 +34,7 @@ function PageContact() {
               <h2 className="contact-title-background">contact</h2>
               <div className="contact-title-wrap">
                 <h2 className="contact-title-foreground">
-                  {mapDataToTextContent("main.contact.title")}
+                  {useMapDataToTextContent("main.contact.title", language)}
                 </h2>
               </div>
             </div>
@@ -60,7 +60,10 @@ function PageContact() {
                 />
                 <MainButton
                   withIcon={true}
-                  label={mapDataToTextContent("main.buttons.get_consultation")}
+                  label={useMapDataToTextContent(
+                    "main.buttons.get_consultation",
+                    language
+                  )}
                   onClick={handleConsultationForm}
                 />
               </div>

@@ -14,12 +14,7 @@ import GetConsultationForm from "@/app/components/getConsultationForm/GetConsult
 import useMapDataToTextContent from "@/app/hooks/ useMapDataToTextContent";
 
 function PageServices() {
-  const {
-    mapDataToTextContent,
-    handleConsultationForm,
-    isConsultationForm,
-    language,
-  } = UseMenu();
+  const { handleConsultationForm, isConsultationForm, language } = UseMenu();
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);

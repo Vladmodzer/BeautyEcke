@@ -97,32 +97,6 @@ export default function ClientProvider({ children }) {
     }
   }, [newData, language]);
 
-  // Функция для маппинга данных в текстовый контент с использованием языка из контекста по умолчанию
-  const mapDataToTextContent = (keyPath, lan = language) => {
-    const [textContent, setTextContent] = useState("");
-
-    useEffect(() => {
-      if (typeof window === "undefined") return;
-
-      const storedData = localStorage.getItem("newData")
-        ? localStorage.getItem("newData")
-        : "";
-      if (!storedData) return;
-
-      const data = JSON.parse(storedData);
-      if (!data || !data[lan]) return;
-
-      const result =
-        keyPath
-          .split(".")
-          .reduce((acc, key) => acc && acc[key], data[lan][lan]) || "";
-
-      setTextContent(result);
-    }, [keyPath, lan]);
-
-    return textContent;
-  };
-
   // Функция для отправки данных в WhatsApp
   const sendToWhatsApp = (data) => {
     console.log("sendToWhatsApp", data);
@@ -153,7 +127,6 @@ export default function ClientProvider({ children }) {
         setLanguage,
         changeLanguage,
         handleMenu,
-        mapDataToTextContent,
         t,
         setConsultationForm,
         handleConsultationForm,
