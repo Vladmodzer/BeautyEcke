@@ -11,15 +11,19 @@ import imgBg from "./../../../../public/img/bg.jpg";
 import MainButton from "@/app/components/mainButton/MainButton";
 import Image from "next/image";
 import GetConsultationForm from "@/app/components/getConsultationForm/GetConsultationForm";
+import useMapDataToTextContent from "@/app/hooks/ useMapDataToTextContent";
 
 function PageServices() {
-  const { mapDataToTextContent,handleConsultationForm,isConsultationForm } = UseMenu();
+  const {
+    mapDataToTextContent,
+    handleConsultationForm,
+    isConsultationForm,
+    language,
+  } = UseMenu();
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);
   };
-
-
 
   return (
     <div className={`primaryOuterContainer `}>
@@ -36,17 +40,22 @@ function PageServices() {
               <h2 className="price_section_price">Prices</h2>
               <div className="makeup_wrap">
                 <h3 className="price_section_makeup">
-                  {mapDataToTextContent("main.price_section.title")}
+                  {useMapDataToTextContent(
+                    "main.price_section.title",
+                    language
+                  )}
                 </h3>
               </div>
             </div>
+
             <div className="cardContainer">
               <div className="card">
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {mapDataToTextContent(
-                      "main.price_section.items.eyebrow.title"
+                    {useMapDataToTextContent(
+                      "main.price_section.items.eyebrow.title",
+                      language
                     )}
                   </span>
                 </div>
@@ -54,14 +63,20 @@ function PageServices() {
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "main.price_section.items.eyebrow.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.eyebrow.duration",
+                    language
                   )}
                 </p>
-                <p>100$</p>
+                <p>
+                  {useMapDataToTextContent(
+                    "main.price_section.items.eyebrow.price",
+                    language
+                  )}
+                </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent("header.button")}
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -71,8 +86,9 @@ function PageServices() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {mapDataToTextContent(
-                      "main.price_section.items.eyebrow.title"
+                    {useMapDataToTextContent(
+                      "main.price_section.items.eyelid.title",
+                      language
                     )}
                   </span>
                 </div>
@@ -80,14 +96,20 @@ function PageServices() {
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "main.price_section.items.eyebrow.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.eyelid.duration",
+                    language
                   )}
                 </p>
-                <p>100$</p>
+                <p>
+                  {useMapDataToTextContent(
+                    "main.price_section.items.eyelid.price",
+                    language
+                  )}
+                </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent("header.button")}
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -97,8 +119,9 @@ function PageServices() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {mapDataToTextContent(
-                      "main.price_section.items.eyebrow.title"
+                    {useMapDataToTextContent(
+                      "main.price_section.items.lip.title",
+                      language
                     )}
                   </span>
                 </div>
@@ -106,14 +129,21 @@ function PageServices() {
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "main.price_section.items.eyebrow.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.lip.duration",
+                    language
                   )}
                 </p>
-                <p>100$</p>
+                <p>
+                  {" "}
+                  {useMapDataToTextContent(
+                    "main.price_section.items.lip.price",
+                    language
+                  )}
+                </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent("header.button")}
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -123,8 +153,9 @@ function PageServices() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {mapDataToTextContent(
-                      "main.price_section.items.eyebrow.title"
+                    {useMapDataToTextContent(
+                      "main.price_section.items.correction.title",
+                      language
                     )}
                   </span>
                 </div>
@@ -132,14 +163,20 @@ function PageServices() {
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "ain.price_section.items.eyebrow.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.correction.duration",
+                    language
                   )}
                 </p>
-                <p>100$</p>
+                <p>
+                  {useMapDataToTextContent(
+                    "main.price_section.items.correction.price",
+                    language
+                  )}
+                </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent("header.button")}
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -149,8 +186,9 @@ function PageServices() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {mapDataToTextContent(
-                      "main.price_section.items.eyebrow.title"
+                    {useMapDataToTextContent(
+                      "main.price_section.items.foundation_effect.title",
+                      language
                     )}
                   </span>
                 </div>
@@ -158,14 +196,20 @@ function PageServices() {
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "main.price_section.items.eyebrow.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.foundation_effect.duration",
+                    language
                   )}
                 </p>
-                <p>100$</p>
+                <p>
+                  {useMapDataToTextContent(
+                    "main.price_section.items.foundation_effect.price",
+                    language
+                  )}
+                </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent("header.button")}
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -175,27 +219,30 @@ function PageServices() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-          
-                    {mapDataToTextContent(
-                    "main.price_section.items.eyebrow.title"
-                  )}
+                    {useMapDataToTextContent(
+                      "main.price_section.items.permanent_makeup.title",
+                      language
+                    )}
                   </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "main.price_section.items.eyebrow.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.permanent_makeup.duration",
+                    language
                   )}
                 </p>
-                <p>100$</p>
+                <p>
+                  {useMapDataToTextContent(
+                    "main.price_section.items.permanent_makeup.price",
+                    language
+                  )}
+                </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent(
-                      "header.button"
-                    )}
-                    
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -205,7 +252,7 @@ function PageServices() {
           </div>
         </section>
       </main>
-      <Footer  container={"container"} />
+      <Footer container={"container"} />
     </div>
   );
 }

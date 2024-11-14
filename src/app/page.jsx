@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import GetConsultationForm from "@/app/components/getConsultationForm/GetConsultationForm";
 import Slider from "./components/slider/Slider";
 import LoadingOverlay from "./components/LoadingOverlay/LoadingOverlay";
+import useMapDataToTextContent from "./hooks/ useMapDataToTextContent";
 
 export default function Home() {
   const {
@@ -126,26 +127,37 @@ export default function Home() {
           <div className="advantages">
             <div className="advantagesCard">
               <UserIconComponent />
-              <h3>
-                {mapDataToTextContent("main.advantages.fast_and_painless")}
-              </h3>
+              <h3>{useMapDataToTextContent("main.welcome.title", language)}</h3>
               <p>
-                {mapDataToTextContent("main.advantages.procedure_duration")}
+                {useMapDataToTextContent(
+                  "main.advantages.procedure_duration",
+                  language
+                )}
               </p>
             </div>
             <div className="advantagesCard">
               <HeartIconComponent />
               <h3>
-                {mapDataToTextContent("main.advantages.fast_and_painless")}
+                {useMapDataToTextContent(
+                  "main.advantages.fast_and_painless",
+                  language
+                )}
               </h3>
-              <p>{mapDataToTextContent("main.advantages.guarantee")}</p>
+              <p>
+                {useMapDataToTextContent("main.advantages.guarantee", language)}
+              </p>
             </div>
             <div className="advantagesCard">
               <HeartIconComponent />
               <h3>
-                {mapDataToTextContent("main.advantages.fast_and_painless")}
+                {useMapDataToTextContent(
+                  "main.advantages.fast_and_painless",
+                  language
+                )}
               </h3>
-              <p>{mapDataToTextContent("main.advantages.guarantee")}</p>
+              <p>
+                {useMapDataToTextContent("main.advantages.guarantee", language)}
+              </p>
             </div>
           </div>
         </div>
@@ -155,7 +167,10 @@ export default function Home() {
               <h2 className="price_section_price">Prices</h2>
               <div className="makeup_wrap">
                 <h3 className="price_section_makeup">
-                  {mapDataToTextContent("main.price_section.title")}
+                  {useMapDataToTextContent(
+                    "main.price_section.title",
+                    language
+                  )}
                 </h3>
               </div>
             </div>
@@ -165,8 +180,9 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {mapDataToTextContent(
-                      "main.price_section.items.eyebrow.title"
+                    {useMapDataToTextContent(
+                      "main.price_section.items.eyebrow.title",
+                      language
                     )}
                   </span>
                 </div>
@@ -174,18 +190,20 @@ export default function Home() {
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "main.price_section.items.eyebrow.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.eyebrow.duration",
+                    language
                   )}
                 </p>
                 <p>
-                  {mapDataToTextContent(
-                    "main.price_section.items.eyebrow.price"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.eyebrow.price",
+                    language
                   )}
                 </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent("header.button")}
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -195,8 +213,9 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {mapDataToTextContent(
-                      "main.price_section.items.eyelid.title"
+                    {useMapDataToTextContent(
+                      "main.price_section.items.eyelid.title",
+                      language
                     )}
                   </span>
                 </div>
@@ -204,18 +223,20 @@ export default function Home() {
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "main.price_section.items.eyelid.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.eyelid.duration",
+                    language
                   )}
                 </p>
                 <p>
-                  {mapDataToTextContent(
-                    "main.price_section.items.eyelid.price"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.eyelid.price",
+                    language
                   )}
                 </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent("header.button")}
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -225,24 +246,31 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {mapDataToTextContent("main.price_section.items.lip.title")}
+                    {useMapDataToTextContent(
+                      "main.price_section.items.lip.title",
+                      language
+                    )}
                   </span>
                 </div>
                 <div className="cardPhoto">
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "main.price_section.items.lip.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.lip.duration",
+                    language
                   )}
                 </p>
                 <p>
                   {" "}
-                  {mapDataToTextContent("main.price_section.items.lip.price")}
+                  {useMapDataToTextContent(
+                    "main.price_section.items.lip.price",
+                    language
+                  )}
                 </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent("header.button")}
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -252,8 +280,9 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {mapDataToTextContent(
-                      "main.price_section.items.correction.title"
+                    {useMapDataToTextContent(
+                      "main.price_section.items.correction.title",
+                      language
                     )}
                   </span>
                 </div>
@@ -261,18 +290,20 @@ export default function Home() {
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "main.price_section.items.correction.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.correction.duration",
+                    language
                   )}
                 </p>
                 <p>
-                  {mapDataToTextContent(
-                    "main.price_section.items.correction.price"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.correction.price",
+                    language
                   )}
                 </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent("header.button")}
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -282,8 +313,9 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {mapDataToTextContent(
-                      "main.price_section.items.foundation_effect.title"
+                    {useMapDataToTextContent(
+                      "main.price_section.items.foundation_effect.title",
+                      language
                     )}
                   </span>
                 </div>
@@ -291,18 +323,20 @@ export default function Home() {
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "main.price_section.items.foundation_effect.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.foundation_effect.duration",
+                    language
                   )}
                 </p>
                 <p>
-                  {mapDataToTextContent(
-                    "main.price_section.items.foundation_effect.price"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.foundation_effect.price",
+                    language
                   )}
                 </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent("header.button")}
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -312,8 +346,9 @@ export default function Home() {
                 <div className="cardTitle">
                   <span>
                     {" "}
-                    {mapDataToTextContent(
-                      "main.price_section.items.permanent_makeup.title"
+                    {useMapDataToTextContent(
+                      "main.price_section.items.permanent_makeup.title",
+                      language
                     )}
                   </span>
                 </div>
@@ -321,18 +356,20 @@ export default function Home() {
                   <Image width={500} height={300} src={imgBg} alt="img" />
                 </div>
                 <p className="cardText">
-                  {mapDataToTextContent(
-                    "main.price_section.items.permanent_makeup.duration"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.permanent_makeup.duration",
+                    language
                   )}
                 </p>
                 <p>
-                  {mapDataToTextContent(
-                    "main.price_section.items.permanent_makeup.price"
+                  {useMapDataToTextContent(
+                    "main.price_section.items.permanent_makeup.price",
+                    language
                   )}
                 </p>
                 <div className="cardButton">
                   <MainButton
-                    label={mapDataToTextContent("header.button")}
+                    label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
                     bg={"var(--background)"}
                   />
@@ -347,7 +384,7 @@ export default function Home() {
               <h2 className="portfolio-title-background">PORTFOLIO</h2>
               <div className="portfolio-title-wrap">
                 <h2 className="portfolio-title-foreground">
-                  {mapDataToTextContent("main.portfolio.title")}
+                  {useMapDataToTextContent("main.portfolio.title", language)}
                 </h2>
               </div>
             </div>
@@ -436,7 +473,7 @@ export default function Home() {
               </div>
             </div>
             <p className="portfolio-footer">
-              {mapDataToTextContent("main.portfolio.footer")}
+              {useMapDataToTextContent("main.portfolio.footer", language)}
             </p>
           </div>
         </section>
@@ -446,7 +483,7 @@ export default function Home() {
               <h2 className="contact-title-background">contact</h2>
               <div className="contact-title-wrap">
                 <h2 className="contact-title-foreground">
-                  {mapDataToTextContent("main.contact.title")}
+                  {useMapDataToTextContent("main.contact.title", language)}
                 </h2>
               </div>
             </div>
@@ -472,7 +509,10 @@ export default function Home() {
                 />
                 <MainButton
                   withIcon={true}
-                  label={mapDataToTextContent("main.buttons.get_consultation")}
+                  label={useMapDataToTextContent(
+                    "main.buttons.get_consultation",
+                    language
+                  )}
                   onClick={handleConsultationForm}
                 />
               </div>

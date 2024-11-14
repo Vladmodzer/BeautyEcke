@@ -4,7 +4,6 @@ import { createContext, useState, useContext, useEffect } from "react";
 import en from "../local/en/translation.json"; // Импортируйте ваши переводы
 import de from "../local/de/translation.json";
 import ru from "../local/ru/translation.json";
-import useMapDataToTextContent from "./hooks/ useMapDataToTextContent";
 
 // Создаём контекст для меню
 const MenuContext = createContext();
@@ -100,43 +99,46 @@ export default function ClientProvider({ children }) {
 
   // Функция для маппинга данных в текстовый контент с использованием языка из контекста по умолчанию
   const mapDataToTextContent = (keyPath, lan = language) => {
-    
-    // const [textContent, setTextContent] = useState("");
-  
-    // useEffect(() => {
-    //   if (typeof window === "undefined") return;
-  
-    //   const storedData = localStorage.getItem("newData") ? localStorage.getItem("newData") : "";
-    //   if (!storedData) return;
-  
-    //   const data = JSON.parse(storedData);
-    //   if (!data || !data[lan]) return;
-  
-    //   const result = keyPath
-    //     .split(".")
-    //     .reduce((acc, key) => acc && acc[key], data[lan][lan]) || "";
-  
-    //   setTextContent(result);
-    // }, [keyPath, lan]);
-  
-    return useMapDataToTextContent(keyPath,lan = language);
+    const [textContent, setTextContent] = useState("");
+
+    useEffect(() => {
+      if (typeof window === "undefined") return;
+
+      const storedData = localStorage.getItem("newData")
+        ? localStorage.getItem("newData")
+        : "";
+      if (!storedData) return;
+
+      const data = JSON.parse(storedData);
+      if (!data || !data[lan]) return;
+
+      const result =
+        keyPath
+          .split(".")
+          .reduce((acc, key) => acc && acc[key], data[lan][lan]) || "";
+
+      setTextContent(result);
+    }, [keyPath, lan]);
+
+    return textContent;
   };
-  
-   // Функция для отправки данных в WhatsApp
-   const sendToWhatsApp = (data) => {
-    console.log("sendToWhatsApp",data);
-    
+
+  // Функция для отправки данных в WhatsApp
+  const sendToWhatsApp = (data) => {
+    console.log("sendToWhatsApp", data);
+
     if (!data.name || !data.phone) {
       alert("Please fill out all fields.");
       return;
     }
 
     const message = `${data.requestType} request:\nName: ${data.name}\nPhone: ${data.phone}`;
-    const whatsappURL = `https://wa.me/+4917666607523?text=${encodeURIComponent(message)}`;
-    
+    const whatsappURL = `https://wa.me/+4917666607523?text=${encodeURIComponent(
+      message
+    )}`;
+
     window.open(whatsappURL, "_blank");
   };
-
 
   return (
     <MenuContext.Provider
@@ -146,7 +148,7 @@ export default function ClientProvider({ children }) {
         newData,
         langPack,
         loading,
-        isConsultationForm, 
+        isConsultationForm,
         fetchTranslations,
         setLanguage,
         changeLanguage,

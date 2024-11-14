@@ -11,26 +11,23 @@ import MainButton from "@/app/components/mainButton/MainButton";
 import VerifiedIcon from "@/app/components/heroicons/VerifiedIcon/VerifiedIcon";
 import Image from "next/image";
 import GetConsultationForm from "@/app/components/getConsultationForm/GetConsultationForm";
+import useMapDataToTextContent from "@/app/hooks/ useMapDataToTextContent";
 
 function PageAbout() {
   const {
-    overlayOpen,
     mapDataToTextContent,
-    language,
-    langPack,
-    t,
     isConsultationForm,
     handleConsultationForm,
+    language,
   } = UseMenu();
 
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);
   };
-  const [setConsultationForm] = useState(false);
 
   return (
-    <div className={`primaryOuterContainer ${overlayOpen ? "overlay" : ""}`}>
+    <div className={`primaryOuterContainer`}>
       <MobileMenu />
       {isReserveForm && <ReserveForm onClick={handleReserveForm} />}
       {isConsultationForm && (
@@ -58,10 +55,16 @@ function PageAbout() {
                   <li>
                     <h3 className={styles.textBox}>
                       <span>
-                        {mapDataToTextContent("main.about.master.position")}
+                        {useMapDataToTextContent(
+                          "main.about.master.position",
+                          language
+                        )}
                       </span>
                       <span>
-                        {mapDataToTextContent("main.about.master.name")}
+                        {useMapDataToTextContent(
+                          "main.about.master.name",
+                          language
+                        )}
                       </span>
                     </h3>
                   </li>
@@ -69,8 +72,9 @@ function PageAbout() {
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
                       <span>
-                        {mapDataToTextContent(
-                          "main.about.master.achievements.0"
+                        {useMapDataToTextContent(
+                          "main.about.master.achievements.0",
+                          language
                         )}
                       </span>
                     </div>
@@ -79,8 +83,9 @@ function PageAbout() {
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
                       <span>
-                        {mapDataToTextContent(
-                          "main.about.master.achievements.1"
+                        {useMapDataToTextContent(
+                          "main.about.master.achievements.1",
+                          language
                         )}
                       </span>
                     </div>
@@ -89,8 +94,9 @@ function PageAbout() {
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
                       <span>
-                        {mapDataToTextContent(
-                          "main.about.master.achievements.2"
+                        {useMapDataToTextContent(
+                          "main.about.master.achievements.2",
+                          language
                         )}
                       </span>
                     </div>
@@ -99,24 +105,19 @@ function PageAbout() {
                     <div className={styles.checkBox}>
                       <VerifiedIcon />
                       <span>
-                        {mapDataToTextContent(
-                          "main.about.master.achievements.3"
+                        {useMapDataToTextContent(
+                          "main.about.master.achievements.3",
+                          language
                         )}
                       </span>
                     </div>
                   </li>
-                  {/* <li>
-                    <div className={styles.checkBox}>
-                      <VerifiedIcon />
-                      <span>
-       
-                        {mapDataToTextContent(newData,"main.about.master.achievements.4")}
-                      </span>
-                    </div>
-                  </li> */}
                 </ul>
                 <MainButton
-                  label={mapDataToTextContent("main.buttons.book_appointment")}
+                  label={useMapDataToTextContent(
+                    "main.buttons.book_appointment",
+                    language
+                  )}
                   onClick={handleReserveForm}
                 />
               </div>
@@ -129,7 +130,7 @@ function PageAbout() {
               <h2 className="contact-title-background">contact</h2>
               <div className="contact-title-wrap">
                 <h2 className="contact-title-foreground">
-                  {mapDataToTextContent("main.contact.title")}
+                  {useMapDataToTextContent("main.contact.title", language)}
                 </h2>
               </div>
             </div>
@@ -155,7 +156,10 @@ function PageAbout() {
                 />
                 <MainButton
                   withIcon={true}
-                  label={mapDataToTextContent("main.buttons.get_consultation")}
+                  label={useMapDataToTextContent(
+                    "main.buttons.get_consultation",
+                    language
+                  )}
                   onClick={handleConsultationForm}
                 />
               </div>
