@@ -1,28 +1,51 @@
-// useMapDataToTextContent.js
 "use client";
-import { useState, useEffect } from "react";
 
-const useMapDataToTextContent = (keyPath, lan) => {
+import { useState, useEffect } from "react";
+import { UseMenu } from "../ClientProvider";
+
+const useMapDataToTextContent = (keyPath) => {
+  const { firstServerData, language, fetchTranslations, initialLanguage } =
+    UseMenu();
   const [textContent, setTextContent] = useState("");
 
+  // Функция для извлечения значения из объекта по пути (keyPath)
+  const getNestedValue = (obj, path) => {
+    return path
+      .split(".")
+      .reduce((acc, key) => (acc && acc[key] ? acc[key] : null), obj);
+  };
+  // Функция для получения значения куки по имени
+  const getCookie = (name) => {
+    const cookieMatch = document.cookie.match(
+      new RegExp("(^| )" + name + "=([^;]+)")
+    );
+    return cookieMatch ? cookieMatch[2] : null;
+  };
+
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    const initializeData = async () => {
+      let storedLanguage = getCookie("language");
+      const storedFirstLanguage = initialLanguage;
 
-    const storedData = localStorage.getItem("newData")
-      ? localStorage.getItem("newData")
-      : "";
-    if (!storedData) return;
+      if (!storedLanguage) {
+        storedLanguage = initialLanguage;
+      }
 
-    const data = JSON.parse(storedData);
-    if (!data || !data[lan]) return;
+      let text = "";
+      if (getCookie("language")) {
+        const data = await fetchTranslations({ language: language }); // Ждем разрешения промиса
 
-    const result =
-      keyPath
-        .split(".")
-        .reduce((acc, key) => acc && acc[key], data[lan][lan]) || "";
+        text = getNestedValue(data[language][language], keyPath || "");
+      } else {
+        text =
+          getNestedValue(firstServerData[storedFirstLanguage], keyPath) || "";
+      }
 
-    setTextContent(result);
-  }, [keyPath, lan]);
+      setTextContent(text);
+    };
+
+    initializeData();
+  }, [keyPath, language, firstServerData]);
 
   return textContent;
 };

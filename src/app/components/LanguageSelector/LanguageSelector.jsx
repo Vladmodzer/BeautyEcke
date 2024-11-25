@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import {  useState } from "react";
 import { UseMenu } from "../../ClientProvider"; // Импортируйте UseMenu
 import styles from "./languageSelector.module.css";
 
 const LanguageSelector = ({ style }) => {
-  const { language, changeLanguage, fetchTranslations } = UseMenu(); // Деструктуризация контекста
+  const { language, changeLanguage } = UseMenu(); // Деструктуризация контекста
   const [isOpen, setIsOpen] = useState(false);
 
   const handleChange = (newLang) => {
@@ -12,9 +12,8 @@ const LanguageSelector = ({ style }) => {
     setIsOpen(false); // Закрываем меню после выбора
   };
 
-  // useEffect(() => {
-  //   fetchTranslations([1, 2, 3], language); // Замена на реальные ID, если они известны
-  // }, [language]);
+
+  
 
   return (
     <div className={styles.container} style={style}>

@@ -1,10 +1,10 @@
 // src/app/layout.jsx
 import localFont from "next/font/local";
 import "./globals.css";
-import 'normalize.css';
+import "normalize.css";
 import ClientProvider from "./ClientProvider";
-
-
+import { getDataFirst } from "@/db/utils";
+import { cookies } from "next/headers";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -22,12 +22,18 @@ export const metadata = {
   description: "start:08.10.2024 time:15:13 dev:mozdzer",
 };
 
-export default function RootLayout({ children }) {
-  
+// RootLayout is a server component
+export default async function RootLayout({ children }) {
+  const { firstData, currentLanguage } = await getDataFirst();
+
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ClientProvider>
+      <body>
+        {/* Pass the fetched firstData to ClientProvider */}
+        <ClientProvider
+          firstServerData={firstData}
+          initialLanguage={currentLanguage}
+        >
           {children}
         </ClientProvider>
       </body>

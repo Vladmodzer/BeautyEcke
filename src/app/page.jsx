@@ -21,7 +21,6 @@ import useMapDataToTextContent from "./hooks/ useMapDataToTextContent";
 export default function Home() {
   const {
     language,
-    fetchTranslations,
 
     loading,
     isConsultationForm,
@@ -29,12 +28,6 @@ export default function Home() {
   } = UseMenu();
 
   const [isReserveForm, setReserveForm] = useState(false);
-
-  useEffect(() => {
-    fetchTranslations([1, 2, 3], language).catch((error) =>
-      console.error("Translation fetch error:", error)
-    );
-  }, [language]);
 
   const handleReserveForm = () => {
     setReserveForm((prev) => !prev);

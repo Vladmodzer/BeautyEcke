@@ -12,13 +12,18 @@ export function UseMenu() {
   return useContext(MenuContext);
 }
 
-export default function ClientProvider({ children }) {
-  // const [overlayOpen, setOverlayOpen] = useState(false); // Состояние для оверлея
-  const [menuOpen, setMenuOpen] = useState(false); // Добавляем состояние для меню
-  const [language, setLanguage] = useState("de"); // Добавляем состояние языка
+export default function ClientProvider({
+  children,
+  firstServerData,
+  initialLanguage,
+}) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [language, setLanguage] = useState(initialLanguage);
   const [newData, setNewData] = useState({});
   const [langPack, setLangPack] = useState({});
-  const [loading, setLoading] = useState(true); // Состояние для индикатора загрузки
+  const [loading, setLoading] = useState(false);
+  const [adminPassword, setAdminPassword] = useState("");
+  const [isadminPasswordRight, setIsadminPasswordRight] = useState(false);
   // Определяем переводы
   const [isConsultationForm, setConsultationForm] = useState(false);
   const translations = { en, de, ru };
@@ -53,9 +58,10 @@ export default function ClientProvider({ children }) {
   // Функция для изменения языка
   const changeLanguage = (newLang) => {
     setLanguage(newLang);
+    document.cookie = `language=${newLang}; path=/; max-age=31536000`;
   };
 
-  const fetchTranslations = async (ids) => {
+  const fetchTranslations = async ({ language }) => {
     setLoading(true);
     try {
       // Используем URL сервера для проверки
@@ -63,7 +69,7 @@ export default function ClientProvider({ children }) {
         // укажите URL, если нужно
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ids }),
+        body: JSON.stringify({ language }),
       });
 
       if (!response.ok) {
@@ -72,17 +78,7 @@ export default function ClientProvider({ children }) {
 
       const data = await response.json();
 
-      const dataIsPacung = {};
-      dataIsPacung["en"] = data[1];
-      dataIsPacung["de"] = data[2];
-      dataIsPacung["ru"] = data[3];
-
-      if (Object.keys(newData).length > 0) {
-        localStorage.setItem("newData", JSON.stringify(newData));
-        // console.log("localStorage was field");
-      }
-
-      setNewData(dataIsPacung);
+      return data;
     } catch (error) {
       console.error("Ошибка при получении переводов:", error);
     } finally {
@@ -90,7 +86,6 @@ export default function ClientProvider({ children }) {
     }
   };
 
-  // Обновляем langPack, когда newData меняется
   useEffect(() => {
     if (newData[language]) {
       setLangPack(newData[language]);
@@ -99,8 +94,6 @@ export default function ClientProvider({ children }) {
 
   // Функция для отправки данных в WhatsApp
   const sendToWhatsApp = (data) => {
-    console.log("sendToWhatsApp", data);
-
     if (!data.name || !data.phone) {
       alert("Please fill out all fields.");
       return;
@@ -113,16 +106,22 @@ export default function ClientProvider({ children }) {
 
     window.open(whatsappURL, "_blank");
   };
-
+  function handleLoading(){
+    setLoading((prev) => !prev);
+  };
   return (
     <MenuContext.Provider
       value={{
+        firstServerData,
         menuOpen,
         language,
         newData,
         langPack,
         loading,
         isConsultationForm,
+        initialLanguage,
+        adminPassword,
+        isadminPasswordRight,
         fetchTranslations,
         setLanguage,
         changeLanguage,
@@ -131,6 +130,9 @@ export default function ClientProvider({ children }) {
         setConsultationForm,
         handleConsultationForm,
         sendToWhatsApp,
+        setAdminPassword,
+        setIsadminPasswordRight,
+        handleLoading,
       }}
     >
       {children}

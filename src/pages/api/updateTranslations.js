@@ -23,11 +23,9 @@ export default async function updateTranslations(req, res) {
 
       // Добавляем промис в массив для параллельного выполнения
       updatePromises.push(
-        db.collection("products").updateOne(
-          { id: languageId },
-          { $set: newData },
-          { upsert: false }
-        )
+        db
+          .collection("products")
+          .updateOne({ id: languageId }, { $set: newData }, { upsert: false })
       );
     }
 

@@ -589,6 +589,9 @@ video::-webkit-media-controls {
   width: 100%;
   font-size: clamp(14px, 2vw, 18px);
 }
+.CheckCircleIcon {
+width: 50px;
+}
 @media (max-width: 480px) {
   .card {
     flex: 1 1 100%; /* 1 card per row */

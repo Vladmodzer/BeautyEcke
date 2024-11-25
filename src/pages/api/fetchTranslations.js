@@ -1,35 +1,44 @@
 import { connectToDatabase } from "../../db"; // Убедитесь, что путь к соединению с БД правильный
 
 export default async function fetchTranslations(req, res) {
-  if (req.method === "POST") {
-    const { ids } = req.body;
+  const ids = {
+    en: 1,
+    de: 2,
+    ru: 3,
+  };
 
-    if (!Array.isArray(ids) || ids.length === 0) {
+  if (req.method === "POST") {
+    const { language } = req.body; // Извлекаем язык из тела запроса
+
+    if (!language) {
       return res
         .status(400)
-        .json({ error: "IDs are required and should be a non-empty array" });
+        .json({ error: "Invalid or missing language parameter" });
     }
 
     try {
       const db = await connectToDatabase(); // Подключаемся к базе данных
+      const id = ids[language]; // Получаем ID для запрашиваемого языка
 
-      const translations = {};
+      // Ищем документ в коллекции
+      const translationData = await db
+        .collection("products") // Замените "products" на реальное имя коллекции
+        .findOne({ id });
 
-      // Процесс получения данных для каждого ID
-      for (const id of ids) {
-        
-        const translationData = await db.collection("products").findOne({ id });
-        if (translationData) {
-          translations[id] = translationData;
-        } else {
-          console.log(`No translation found for id: ${id}`);
-        }
+      if (!translationData) {
+        console.log(
+          `No translation found for language: ${language}, id: ${id}`
+        );
+        return res.status(404).json({ error: "Translation not found" });
       }
 
-      // Возвращаем только полученные данные без записи в файлы
-      // console.log("translations:", translations);
+      // Преобразуем данные с помощью JSON.parse(JSON.stringify(...))
+      const plainData = JSON.parse(JSON.stringify(translationData));
 
-      return res.status(200).json(translations);
+      // Возвращаем перевод
+      return res.status(200).json({
+        [language]: plainData,
+      });
     } catch (error) {
       console.error("Error in fetchTranslations:", error);
       return res.status(500).json({ error: "Internal Server Error" });
