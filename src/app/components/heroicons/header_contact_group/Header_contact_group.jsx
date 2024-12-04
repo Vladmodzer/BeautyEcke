@@ -9,17 +9,17 @@ function HeaderContactGroup({className,iconStyle}) {
   return (
     <div className={className? className : styles.container}>
 
-      <Link href="viber://chat?number=YOUR_VIBER_NUMBER" className={styles.link} aria-label="Viber">
+      <Link href="viber://chat?number=0678757692" className={styles.link} aria-label="Viber">
         <FontAwesomeIcon icon={faViber} className={`${iconStyle? iconStyle:styles.icon} text-purple-500`} aria-hidden="true" />
       </Link>
 
  
-      <Link href="https://wa.me/YOUR_WHATSAPP_NUMBER" className={styles.link} aria-label="WhatsApp">
+      <Link href="https://wa.me/+4917666607523" className={styles.link} aria-label="WhatsApp">
         <FontAwesomeIcon icon={faWhatsapp} className={`${iconStyle? iconStyle:styles.icon} text-green-500`} aria-hidden="true" />
       </Link>
 
 
-      <Link href="tel:+YOUR_PHONE_NUMBER" className={styles.link} aria-label="Phone">
+      <Link href="tel:+49 176 66607523" className={styles.link} aria-label="Phone">
         <PhoneIcon className={`${iconStyle? iconStyle:styles.icon} text-gray-500`} aria-hidden="true" />
       </Link>
     </div>
