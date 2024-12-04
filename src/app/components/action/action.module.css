@@ -1,0 +1,81 @@
+.promoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color--white);
+  position: relative;
+  overflow: hidden;
+  color: var(--color--black);
+  margin-top: 5%;
+}
+
+
+
+.promoImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.textContainer {
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.promoTitle {
+  font-size: 2.5rem;
+  color: var(--color--pale-pink); /* Желтый цвет заголовка */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.promoSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.price {
+  font-size: 2rem;
+  color: var(--color--pale-pink);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.phone {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ffc107; /* Желтая кнопка */
+  color: #000; /* Черный текст */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #e0a800; /* Потемнение кнопки при наведении */
+}
+.border {
+  padding: 10px;
+  border: 4px solid var(--color--pale-pink);
+  width: 100%;
+}

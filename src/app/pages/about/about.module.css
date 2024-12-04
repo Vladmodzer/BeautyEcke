@@ -27,9 +27,10 @@
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 .textBox span:nth-of-type(2){
-    color: var(--color--luminous-vivid-amber);
+    color: var(--foreground);
 }
 .checkBox {
   display: flex;

@@ -1,10 +1,8 @@
-const nextConfig = async () => {
-  return {
-    images: {
-      domains: ['permanent-63.ru'],
-    },
 
-  };
+const nextConfig = {
+  images: {
+    domains: ["res-console.cloudinary.com", "permanent-63.ru"], // Добавьте точный домен из ошибки
+  },
 };
 
-export default nextConfig();
+export default nextConfig;

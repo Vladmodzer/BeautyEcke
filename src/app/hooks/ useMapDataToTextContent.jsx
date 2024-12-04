@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { UseMenu } from "../ClientProvider";
 
-const useMapDataToTextContent = (keyPath) => {
+const  useMapDataToTextContent = (keyPath) => {
   const { firstServerData, language, fetchTranslations, initialLanguage } =
     UseMenu();
   const [textContent, setTextContent] = useState("");

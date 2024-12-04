@@ -6,9 +6,84 @@ import { UseMenu } from "@/app/ClientProvider";
 import { useState } from "react";
 import LoadingOverlay from "@/app/components/LoadingOverlay/LoadingOverlay";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+
 const AdminPage = () => {
   const { t, isadminPasswordRight, loading } = UseMenu();
   const [germanArrow, setGermanArrow] = useState(true);
+  const photoIds = ["card1", "card2", "card3", "card4", "card5", "card6"]; // Массив ID
+  const [photoUrls, setPhotoUrls] = useState({});
+  const [photoBox , setPhotoBox] = useState(false)
+  const handlePhoto =()=> {
+    setPhotoBox((prev)=> !prev)
+  }
+  const changLinksOnServer = async (props) => {
+    console.log(props.photoId);
+
+    try {
+      const response = await fetch("/api/pushPhotoUrlToServer", {
+        method: "POST",
+        body: JSON.stringify({
+          link: props.link,
+          photoId: props.photoId,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        console.log("link is added");
+      } else {
+        console.error("Upload failed:", result.error);
+      }
+    } catch (error) {
+      console.error("Error uploading file:", error);
+    }
+  };
+
+  const handleFileChange = async (e, photoId) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("photoId", photoId); // Передаем уникальный ID
+
+    try {
+      const response = await fetch("/api/uploadPhoto", {
+        method: "POST",
+        body: JSON.stringify({
+          file: await toBase64(file),
+          photoId,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const result = await response.json();
+      console.log(result.url);
+      changLinksOnServer({ link: result.url, photoId: photoId });
+
+      if (response.ok) {
+        // Обновляем URL для соответствующего photoId
+        setPhotoUrls((prev) => ({ ...prev, [photoId]: result.url }));
+      } else {
+        console.error("Upload failed:", result.error);
+      }
+    } catch (error) {
+      console.error("Error uploading file:", error);
+    }
+  };
+
+  const toBase64 = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+
   const handleGermanArrow = () => {
     setGermanArrow((prev) => !prev);
   };
@@ -18,6 +93,7 @@ const AdminPage = () => {
   };
 
   const [rusArrow, setRusArrow] = useState(true);
+
   const handleRusArrow = () => {
     setRusArrow((prev) => !prev);
   };
@@ -292,6 +368,37 @@ const AdminPage = () => {
               <input
                 type="text"
                 name="de.main.price_section.items.permanent_makeup.price"
+                placeholder="Цена"
+                className={styles.input}
+              />
+              <h3>Акция</h3>
+              <input
+                type="text"
+                name="de.main.action.title"
+                placeholder="Заголовок"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="de.main.action.subtitle"
+                placeholder="Подзаголовок"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="de.main.action.description"
+                placeholder="Описание"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="de.main.action.phone"
+                placeholder="Tелефон"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="de.main.action.price"
                 placeholder="Цена"
                 className={styles.input}
               />
@@ -606,6 +713,37 @@ const AdminPage = () => {
                 placeholder="Price"
                 className={styles.input}
               />
+              <h3>Акция</h3>
+              <input
+                type="text"
+                name="en.main.action.title"
+                placeholder="Заголовок"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="en.main.action.subtitle"
+                placeholder="Подзаголовок"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="en.main.action.description"
+                placeholder="Описание"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="en.main.action.phone"
+                placeholder="Телефон"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="en.main.action.price"
+                placeholder="Цена"
+                className={styles.input}
+              />
 
               <h3>Примеры работ</h3>
               <input
@@ -662,6 +800,37 @@ const AdminPage = () => {
                 type="text"
                 name="en.main.contact.info.appointment_info"
                 placeholder="Appointment Info"
+                className={styles.input}
+              />
+              <h3>Акция</h3>
+              <input
+                type="text"
+                name="ru.main.action.title"
+                placeholder="Заголовок"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="ru.main.action.subtitle"
+                placeholder="Подзаголовок"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="ru.main.action.description"
+                placeholder="Описание"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="ru.main.action.phone"
+                placeholder="Телефон"
+                className={styles.input}
+              />
+              <input
+                type="text"
+                name="ru.main.action.price"
+                placeholder="Цена"
                 className={styles.input}
               />
 
@@ -1003,10 +1172,32 @@ const AdminPage = () => {
                 className={styles.input}
               />
             </div>
-
             <button type="submit" className={styles.submitButton}>
               Сохранить Изменения
             </button>
+            <h2>Фото</h2>
+            <ChevronDownIcon
+              style={{
+                width: "24px",
+                cursor: "pointer",
+                transition: "transform 0.3s ease", // Плавный переход для вращения
+                transform: photoBox ?  "rotate(0deg)" : "rotate(180deg)", // Условное вращение стрелки
+              }}
+              onClick={handlePhoto} // Обработчик клика
+            />
+            {photoBox && photoIds.map((photoId) => (
+              <div className={styles.photoInput} key={photoId}>
+                <h3>{photoId}</h3>
+                <input
+                  type="file"
+                  onChange={(e) => handleFileChange(e, photoId)}
+                />
+                {photoUrls[photoId] && (
+                  <img src={photoUrls[photoId]} alt={photoId} width="200" />
+                )}
+              </div>
+            ))}
+         
           </form>
         </div>
       </div>

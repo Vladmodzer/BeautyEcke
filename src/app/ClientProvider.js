@@ -98,6 +98,7 @@ export default function ClientProvider({
       alert("Please fill out all fields.");
       return;
     }
+    console.log("sendToWhatsApp:", data.requestType);
 
     const message = `${data.requestType} request:\nName: ${data.name}\nPhone: ${data.phone}`;
     const whatsappURL = `https://wa.me/+4917666607523?text=${encodeURIComponent(
@@ -106,9 +107,9 @@ export default function ClientProvider({
 
     window.open(whatsappURL, "_blank");
   };
-  function handleLoading(){
+  function handleLoading() {
     setLoading((prev) => !prev);
-  };
+  }
   return (
     <MenuContext.Provider
       value={{

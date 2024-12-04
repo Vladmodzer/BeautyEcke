@@ -3,17 +3,22 @@
 import { UseMenu } from "@/app/ClientProvider";
 import Footer from "@/app/components/footer/Footer";
 import Header from "@/app/components/header/Header";
-
 import MobileMenu from "@/app/components/mobileMenu/MobileMenu";
 import ReserveForm from "@/app/components/reserveForm/ReserveForm";
 import { useState } from "react";
-import imgBg from "./../../../../public/img/bg.jpg";
 import MainButton from "@/app/components/mainButton/MainButton";
-import Image from "next/image";
 import GetConsultationForm from "@/app/components/getConsultationForm/GetConsultationForm";
 import useMapDataToTextContent from "@/app/hooks/ useMapDataToTextContent";
+import useGetImageUrl from "@/app/hooks/getPhoto/useGetPhoto";
+import PromoBanner from "@/app/components/action/Action";
 
 function PageServices() {
+  const photo1 = useGetImageUrl("photo", "card1");
+  const photo2 = useGetImageUrl("photo", "card2");
+  const photo3 = useGetImageUrl("photo", "card3");
+  const photo4 = useGetImageUrl("photo", "card4");
+  const photo5 = useGetImageUrl("photo", "card5");
+  const photo6 = useGetImageUrl("photo", "card6");
   const { handleConsultationForm, isConsultationForm, language } = UseMenu();
   const [isReserveForm, setReserveForm] = useState(false);
   const handleReserveForm = () => {
@@ -29,7 +34,7 @@ function PageServices() {
       )}
       <Header onClick={handleReserveForm} container={"container"} />
       <main>
-        <section className="price_section">
+      <section className="price_section">
           <div className="container">
             <div className="price_section_text">
               <h2 className="price_section_price">Prices</h2>
@@ -55,7 +60,7 @@ function PageServices() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                  <img className="photoinCard"  src={photo1} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -88,7 +93,9 @@ function PageServices() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                <img className="photoinCard" 
+                
+                src={photo2} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -121,7 +128,7 @@ function PageServices() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                <img className="photoinCard" width={500}  src={photo3} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -155,7 +162,7 @@ function PageServices() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                <img className="photoinCard" width={500}  src={photo4} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -188,7 +195,7 @@ function PageServices() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                <img className="photoinCard" width={500}  src={photo5} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -221,7 +228,7 @@ function PageServices() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                <img className="photoinCard" width={500}  src={photo6} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -244,6 +251,7 @@ function PageServices() {
                 </div>
               </div>
             </div>
+            <PromoBanner />
           </div>
         </section>
       </main>

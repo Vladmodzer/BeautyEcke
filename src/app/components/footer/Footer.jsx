@@ -11,7 +11,7 @@ import useMapDataToTextContent from "@/app/hooks/ useMapDataToTextContent";
 function Footer({ container }) {
   const pathname = usePathname();
 
-  const { t, language, handleConsultationForm, mapDataToTextContent } =
+  const { t, language, handleConsultationForm} =
     UseMenu();
   const navItems = [
     { name: t("header.home", language), href: "/" },

@@ -13,6 +13,8 @@ const GetConsultationForm = ({ onClick }) => {
       phone: event.target.elements.phone.value,
       requestType: "Consultation",
     };
+    console.log(formData);
+    
     sendToWhatsApp(formData);
   };
   return (

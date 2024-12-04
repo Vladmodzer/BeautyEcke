@@ -24,20 +24,12 @@ async function getServerData(language) {
   };
 }
 export const getDataFirst = async () => {
-  const cookieStore = cookies(); // Получаем cookies
+  const cookieStore = await cookies(); // Получаем cookies
 
   // Проверяем наличие куки "language"
-  let languageCookie = cookieStore.get("language");
+  let languageCookie =  cookieStore.get("language");
 
   let language = languageCookie?.value || "de"; // Если куки нет, устанавливаем "de" как дефолтное значение
-  //   if (!languageCookie) {
-  //     cookieStore.set("language", language, {
-  //       httpOnly: true,
-  //       sameSite: "strict",
-  //     });
-  //     console.log("!languageCookie");
 
-  //     return getServerData(language);
-  //   } else {
   return getServerData(language);
 };

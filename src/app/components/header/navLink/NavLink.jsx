@@ -2,10 +2,10 @@
 import Link from "next/link";
 import styles from "./navLink.module.css";
 
-function NavLink({ title, href, isActive,onClick }) {
+function NavLink({ title, href, isActive, onClick }) {
   return (
     <Link
-    onClick={onClick}
+      onClick={onClick}
       className={`${styles.container} ${isActive ? styles.active : ""}`}
       href={href}
     >

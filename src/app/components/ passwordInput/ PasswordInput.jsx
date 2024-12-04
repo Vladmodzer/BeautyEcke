@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./passwordInput.module.css"; // Импорт модульных стилей
 import { UseMenu } from "@/app/ClientProvider";
 
+
 const PasswordInput = () => {
   const [showPassword, setShowPassword] = useState(false);
   const {
@@ -9,14 +10,14 @@ const PasswordInput = () => {
     setAdminPassword,
     handleLoading,
     setIsadminPasswordRight,
-   
+
     setLoading,
   } = UseMenu();
 
   const [feedback, setFeedback] = useState("");
 
   const handleSendPassword = async () => {
-    handleLoading()
+    handleLoading();
     try {
       const response = await fetch("/api/fetchPassword", {
         method: "POST",
@@ -31,13 +32,14 @@ const PasswordInput = () => {
       }
 
       const res = await response.json();
+    
       setIsadminPasswordRight(true); // Устанавливаем флаг успеха
       setFeedback("Успех: Пароль совпал!"); // Сообщение об успехе
     } catch (error) {
       console.error("Ошибка при обработке запроса:", error.message); // Только для критических ошибок
       setFeedback("Ошибка: Не удалось подключиться к серверу.");
-    }finally {
-        handleLoading()
+    } finally {
+      handleLoading();
     }
   };
 

@@ -1,3 +1,4 @@
+import haschMather from "@/hasch/haschMather.mjs";
 import { connectToDatabase } from "../../db"; // Проверьте правильность пути
 
 export default async function fetchPassword(req, res) {
@@ -26,12 +27,25 @@ export default async function fetchPassword(req, res) {
       }
 
       // Проверяем пароль
-      if (serverPassword.password !== password) {
+      const checkPass = haschMather(password, serverPassword.password).then(
+        (result) => {
+          if (result) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      );
+      // if (serverPassword.password !== password) {
+      //   return res
+      //     .status(401)
+      //     .json({ success: false, message: "Invalid password" });
+      // }
+      if (!checkPass) {
         return res
           .status(401)
           .json({ success: false, message: "Invalid password" });
       }
-
       return res.status(200).json({ success: true });
     } catch (error) {
       console.error("Database connection or query error:", error.message);

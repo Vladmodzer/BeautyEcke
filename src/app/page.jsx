@@ -5,20 +5,29 @@ import Footer from "@/app/components/footer/Footer";
 import { UseMenu } from "./ClientProvider";
 import MobileMenu from "./components/mobileMenu/MobileMenu";
 import ReserveForm from "./components/reserveForm/ReserveForm";
-import imgBg from "../../public/img/bg.jpg";
 import VerifiedIcon from "./components/heroicons/VerifiedIcon/VerifiedIcon";
 import MainButton from "./components/mainButton/MainButton";
 import Image from "next/image";
 import UserIconComponent from "./components/heroicons/IconCircle/UserIcon/UserIcon";
 import HeartIconComponent from "./components/heroicons/IconCircle/UserIcon/HeartIcon";
 import HeaderContactGroup from "./components/heroicons/header_contact_group/Header_contact_group";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import GetConsultationForm from "@/app/components/getConsultationForm/GetConsultationForm";
 import Slider from "./components/slider/Slider";
 import LoadingOverlay from "./components/LoadingOverlay/LoadingOverlay";
 import useMapDataToTextContent from "./hooks/ useMapDataToTextContent";
+import PromoBanner from "./components/action/Action";
+import useGetImageUrl from "./hooks/getPhoto/useGetPhoto";
 
 export default function Home() {
+  const photo1 = useGetImageUrl("photo", "card1");
+  const photo2 = useGetImageUrl("photo", "card2");
+  const photo3 = useGetImageUrl("photo", "card3");
+  const photo4 = useGetImageUrl("photo", "card4");
+  const photo5 = useGetImageUrl("photo", "card5");
+  const photo6 = useGetImageUrl("photo", "card6");
+
+
   const {
     language,
 
@@ -198,7 +207,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                  <img className="photoinCard"  src={photo1} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -216,7 +225,7 @@ export default function Home() {
                   <MainButton
                     label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
-                    bg={"var(--background)"}
+                    bg={"var(--foreground)"}
                   />
                 </div>
               </div>
@@ -231,7 +240,9 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                <img className="photoinCard" 
+                
+                src={photo2} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -249,7 +260,7 @@ export default function Home() {
                   <MainButton
                     label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
-                    bg={"var(--background)"}
+                    bg={"var(--foreground)"}
                   />
                 </div>
               </div>
@@ -264,7 +275,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                <img className="photoinCard" width={500}  src={photo3} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -283,7 +294,7 @@ export default function Home() {
                   <MainButton
                     label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
-                    bg={"var(--background)"}
+                    bg={"var(--foreground)"}
                   />
                 </div>
               </div>
@@ -298,7 +309,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                <img className="photoinCard" width={500}  src={photo4} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -316,7 +327,7 @@ export default function Home() {
                   <MainButton
                     label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
-                    bg={"var(--background)"}
+                    bg={"var(--foreground)"}
                   />
                 </div>
               </div>
@@ -331,7 +342,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                <img className="photoinCard" width={500}  src={photo5} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -349,7 +360,7 @@ export default function Home() {
                   <MainButton
                     label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
-                    bg={"var(--background)"}
+                    bg={"var(--foreground)"}
                   />
                 </div>
               </div>
@@ -364,7 +375,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="cardPhoto">
-                  <Image width={500} height={300} src={imgBg} alt="img" />
+                <img className="photoinCard" width={500}  src={photo6} alt="img" />
                 </div>
                 <p className="cardText">
                   {useMapDataToTextContent(
@@ -382,13 +393,15 @@ export default function Home() {
                   <MainButton
                     label={useMapDataToTextContent("header.button", language)}
                     onClick={handleReserveForm}
-                    bg={"var(--background)"}
+                    bg={"var(--foreground)"}
                   />
                 </div>
               </div>
             </div>
+            <PromoBanner />
           </div>
         </section>
+
         <section className="portfolio">
           <div className="container">
             <div className="portfolio-header">
